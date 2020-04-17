@@ -1,0 +1,42 @@
+// Draw media query
+@mixin draw_media($name,$condition){
+    @if $condition == ''{
+        $__viewport: $name !global;
+        @content;
+    }@else{
+        @media #{$condition}{
+            $__viewport: $name !global;
+            @content;
+        }
+    }
+    $__viewport: '' !global;
+}
+// Generate media queries
+@mixin _media($port:false){
+    @if $port{
+        // draw one media query
+        $condition: map_get($__media,$port);
+        @if $condition{
+            @include draw_media($port,$condition){
+                @content;
+            };
+        }
+    }@else{
+        // draw all media queries
+        @each $name, $condition in $__media{
+            @include draw_media($name,$condition){
+                @content;
+            };
+        }
+    }
+}
+// Draw Category
+@mixin _category($name:'',$descr:''){
+    @if $__use-category-comments{
+        /*
+            #{$name} #{$__viewport}
+            #{$descr}
+        */
+    }
+    @content;
+}

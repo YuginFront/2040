@@ -1,0 +1,91 @@
+// BLOCK VARIABLES
+
+// fn tbl
+// c - color 
+// cTh - color th
+
+$e_tbl: (
+        useBdr: 1,
+        bdr: 5px,
+        c: _color(text),
+        cTh: #aec2c9,
+        bgc: _bgc(td),
+        w: _width(empty),
+        h: _height(tdHeight),
+        fw: _font(w, empty),
+        ff: _font(f, empty),
+        fz: _font(s, empty),
+        lh: _font(lh, empty),
+        pl: _ind(empty),
+        pr: _ind(empty),
+        pt: _ind(empty),
+        pb: _ind(empty),
+        ml: _ind(empty),
+        mr: _ind(empty),
+        mt: _ind(empty),
+        mb: _ind(empty),
+);
+
+@function _tbl($var) {
+    @return map_get($e_tbl, $var);
+}
+
+@mixin tables() {
+    @if $__use-css-comments{
+        /** tbl_table #{$__viewport} */
+    }
+    @if $__viewport == xs{
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            thead {
+                th {
+                    color: _tbl(cTh);
+                }
+            }
+            tbody {
+                td {
+                    height: _tbl(h);
+                    background-color: _tbl(bgc);
+                    .td-inner {
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+            }
+
+            @if _tbl(useBdr) == 1 {
+                thead + tbody {
+                    tr {
+                        &:first-child {
+                            td {
+                                &:first-child {
+                                    border-top-left-radius: _tbl(bdr);
+                                }
+                                &:last-child {
+                                    border-top-right-radius: _tbl(bdr);
+                                }
+                            }
+                        }
+                    }
+                }
+                tbody:last-child {
+                    tr:last-child {
+                        td {
+                            &:first-child {
+                                border-bottom-left-radius: _tbl(bdr);
+                            }
+                            &:last-child {
+                                border-bottom-right-radius: _tbl(bdr);
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}

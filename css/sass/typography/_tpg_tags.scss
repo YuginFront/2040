@@ -1,0 +1,97 @@
+
+$e_tpg_tags: (
+    bd_input: 1px solid _color(border),
+    bd_td: none,
+    bgc: _bgc(body),
+    bgc_button: _bgc(button),
+    bgc_input: _bgc(input),
+    c: _color(text),
+    c_a: _color(link),
+    ff: _font(ff, base),
+    fw: _font(ff, regular),
+    fw_b: _font(fw, bold),
+    fz: _font(fz, base),
+    fz_h1: _font(fz, h1),
+    fz_h2: _font(fz, h2),
+    fz_h3: _font(fz, h3),
+    fz_h4: _font(fz, h4),
+    fz_h5: _font(fz, h5),
+    fz_h6: _font(fz, h6),
+    ind_h1: _ind(h1),
+    ind_h2: _ind(h2),
+    ind_h3: _ind(h3),
+    ind_h4: _ind(h4),
+    ind_h5: _ind(h5),
+    ind_h6: _ind(h6),
+    ind_p: _ind(p),
+    lh: _font(lh, base),
+    p_input: 5px 10px,
+    p_td: 5px,
+);
+
+@function _tpg_tags($var) {
+    @return map_get($e_tpg_tags, $var);
+}
+
+@mixin tpg_tags(){
+    @if $__use-css-comments{
+        /** tpg_tags #{$__viewport} */
+    }
+    @if $__viewport == xs{
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: _tpg_tags(bgc);
+            font-size: _tpg_tags(fz);
+            font-family: _tpg_tags(ff);
+            font-weight: _tpg_tags(fw);
+            color: _tpg_tags(c);
+            line-height: _tpg_tags(lh);
+        }
+
+        h1,h2,h3,h4,h5,h6,
+        h1 a,h2 a,h3 a,h4 a,h5 a,h6 a{
+            color:_tpg_tags(c);
+        }
+
+        // Text
+        h1 {
+            font-size: _tpg_tags(fz_h1);
+            margin: _tpg_tags(ind_h1);
+        }
+        h2 {
+            font-size: _tpg_tags(fz_h2);
+            margin: _tpg_tags(ind_h2);
+        }
+        h3 {
+            font-size: _tpg_tags(fz_h3);
+            margin: _tpg_tags(ind_h3);
+        }
+        h4 {
+            font-size: _tpg_tags(fz_h4);
+            margin: _tpg_tags(ind_h4);
+        }
+        h5 {
+            font-size: _tpg_tags(fz_h5);
+            margin: _tpg_tags(ind_h5);
+        }
+        h6 {
+            font-size: _tpg_tags(fz_h6);
+            margin: _tpg_tags(ind_h6);
+        }
+        p {
+            margin: _tpg_tags(ind_p);
+        }
+        a {
+            color: _tpg_tags(c_a);
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}

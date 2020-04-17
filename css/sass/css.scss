@@ -1,0 +1,70 @@
+// IMPORT BLOCK FILES
+@import
+//Vendor
+//"vendor/normalize",
+//"../../fonts/fontawesome/web-fonts-with-css/scss/fontawesome",
+//base
+'core/index',
+//blocks and layers
+//[ block s, form s, helper s, indentation s, links_and_button s, list s, othe r, table s, structur e, tag s, text s]
+"blocks/index",
+"buttons/index",
+"forms/index",
+"utilities/index",
+"lists/index",
+"other/index",
+"structure/index",
+"tables/index",
+"typography/index"
+;
+
+// Ground section
+
+// Media sections. mobile first.
+@include _media() {
+    @include empty_content($__viewport);
+    @include pl-multiblocks;
+
+    @include _category(typography, 'styles for default html tag s and similar classes') {
+        @include pl-typography;
+        @include tpg_tags;
+    }
+
+    @include _category(utilities) {
+        @include pl-utilities;
+        @include tpg_texts;
+    }
+
+    @include _category(structure, 'styles for main page construction') {
+        @include pl-structure;
+    }
+
+    @include _category(buttons) {
+        @include pl-buttons;
+        @include btns;
+    }
+
+    @include _category(lists) {
+        @include pl-lists;
+    }
+
+    @include _category(blocks) {
+        @include pl-blocks;
+        @include _blocks_example2;
+        @include _blocks_example;
+    }
+
+    @include _category(forms) {
+        @include pl-forms;
+        @include forms;
+    }
+
+    @include _category(tables) {
+        @include pl-tables;
+        @include tables;
+    }
+
+    @include _category(other) {
+        @include pl-other;
+    }
+}

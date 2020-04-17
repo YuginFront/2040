@@ -1,0 +1,225 @@
+<?xml version="1.0"?>
+
+<!-- Attention:  ${basedir}   does not contain whitespace -->
+
+<project name="developer-build" default="init" basedir="../">
+    <defaultexcludes add="**/.idea/**"/>
+    <defaultexcludes add="**/.git/**"/>
+    <property name="rootDirBuild" value="build"/>
+    <property name="hostDir" value="./"/>
+    <property name="removeDir" value="(?:root.*?/|common/)(.*?=)"/>
+    <property name="FileSymlinkRecreateFile" value="recreateFiles.txt"/>
+    <property name="FileExludeFileSet" value="exclude.txt"/>
+    <property name="FileSymlinkRecreateDir" value="recreateDirs.txt"/>
+
+ 
+
+
+
+    <!-- create file  symlink-->
+    <macrodef name="create_symlink">
+
+        <attribute name="dirscan"/>
+        <attribute name="skipDir" default=""/>
+        <attribute name="searchOnly" default=""/>
+        <attribute name="regSkip" default="()"/>
+        <attribute name="propNameSkipSyml"/>
+        <attribute name="propNameSymFile"/>
+        <attribute name="propNameExclude"/>
+        <attribute name="overwrite" default=""/>
+        <attribute name="uncicodevar" />
+
+        <sequential>
+            <copy todir="${hostDir}">
+                <dirset  id="dirs" dir="@{dirscan}" excludes="@{skipDir} libs/" includes="@{searchOnly}"/>
+                <mapper type="regexp" from="^@{regSkip}(.+)" to="\2" />
+            </copy>
+
+            <createSkipSymlinkFileName overwrite="@{overwrite}" propNameSkipSyml="@{propNameSkipSyml}" skipDir="@{skipDir}" />
+            <loadfile property="@{propNameExclude}"  srcFile="${FileExludeFileSet}"/>
+            <fileset  id="files" dir="@{dirscan}" excludes="${@{propNameExclude}}" includes="@{searchOnly}"/>
+            <property name="@{propNameSymFile}" refId="files"/>
+
+  
+
+            <echo  file='${FileSymlinkRecreateFile}' message="${@{propNameSymFile}}"/>
+            <createSymlinkPathFile files="${FileSymlinkRecreateFile}" startScanDir="@{dirscan}" RandomVarUnicod="@{uncicodevar}"/> 
+
+
+            <symlink action="recreate">
+                <fileset dir="${basedir}" includes="${FileSymlinkRecreateFile}"/>
+            </symlink>
+        </sequential>
+
+    </macrodef>
+
+
+    <!-- create file for symlink recreate -->
+    <macrodef name="createSymlinkPathFile">
+
+
+        
+        <attribute name="files"/>
+        <attribute name="startScanDir"/>
+        <attribute name="RandomVarUnicod"/>
+
+        <sequential>
+
+        <loadfile property="@{RandomVarUnicod}"  srcFile="@{files}">
+            <filterchain>
+                <escapeunicode/>
+            </filterchain>
+        </loadfile>
+        <echo  file='@{files}' message="${@{RandomVarUnicod}}"/>
+
+            <replaceregexp file="@{files}"
+                           match="(.+?)(;|$)"
+                           flags="g"
+                           replace='${hostDir}/\1=${basedir}/@{startScanDir}/\1${line.separator}'
+                           byline="true"
+            />
+            <replaceregexp file="@{files}"
+                           match="${removeDir}"
+                           flags="g"
+                           replace="\1"
+                           byline="true"
+            />
+            <replaceregexp file="@{files}"
+                           match="^${hostDir}/libs/(.*?=.*?$)"
+                           flags="gm"
+                           replace="${hostDir}/js/\1"
+                           byline="true"
+            />
+             <replaceregexp file="@{files}"
+                           match=" "
+                           flags="g"
+                           replace="\\\\\\\ " 
+                           byline="true"
+            />
+        </sequential>
+
+
+
+    </macrodef>
+
+
+
+    <!-- create file for exlude fileset -->
+    <macrodef name="createSkipSymlinkFileName">
+
+        <attribute name="overwrite" default=""/>
+        <attribute name="propNameSkipSyml"/>
+        <attribute name="skipDir" default="" />
+        <sequential>
+
+            <fileset id="filInBuild" dir="${hostDir}" includes="@{overwrite}"/>
+            <property name="@{propNameSkipSyml}" refId="filInBuild"/>
+            <echo file='${FileExludeFileSet}' message="${@{propNameSkipSyml}}"/>
+
+        <replaceregexp file="${FileExludeFileSet}"
+                           match=" "
+                           flags="g"
+                           replace="*" 
+                           byline="true"
+            />
+            <replaceregexp file="${FileExludeFileSet}"
+                           match="(^|;|$)"
+                           flags="g"
+                           replace="   "
+                           byline="true"
+            />
+
+            <replaceregexp file="${FileExludeFileSet}"
+                           match=" ([^\s]+?/[^\s]+?) "
+                           flags="g"
+                           replace="**/\1 "
+                           byline="true"
+            />
+
+
+            <replaceregexp file="${FileExludeFileSet}"
+                           match=" ([^\s\/]+?) "
+                           flags="g"
+                           replace="root*/\1 common/\1 \1"
+                           byline="true"
+            />
+
+
+              <replaceregexp file="${FileExludeFileSet}"
+                           match="( \*\*)/js/(.*? )"
+                           flags="g"
+                           replace="\1/js/\2 libs/\2 "
+                           byline="true"
+            />
+
+
+            <echo file='${FileExludeFileSet}' message=" @{skipDir}" append="true"/>
+
+        </sequential>
+
+    </macrodef>
+
+    <!-- create dir symlink -->
+    <macrodef name="create_symlinkDir">
+        <attribute name="dirscan" default=""/>
+        <attribute name="searchOnly" default=""/>
+        <attribute name="varNameSymDir" />
+        <attribute name="uncicodevar" />
+        
+        <sequential>
+
+            <dirset  id="dirsSyml" dir="@{dirscan}" includes="@{searchOnly}"/>
+            <property name="@{varNameSymDir}" refId="dirsSyml"/>
+            <echo file="${FileSymlinkRecreateDir}" message="${@{varNameSymDir}}"/>
+            <createSymlinkPathFile files="${FileSymlinkRecreateDir}" startScanDir="@{dirscan}" RandomVarUnicod="@{uncicodevar}"/>
+
+            <symlink action="recreate">
+                <fileset dir="${basedir}" includes="${FileSymlinkRecreateDir}"/>
+            </symlink>
+
+
+        </sequential>
+
+
+    </macrodef>
+
+    <target name="init" depends="unsetBuildDir,create-symlinks"/>
+
+    <target name="create-symlinks">
+        <mkdir dir="${hostDir}"/>
+        <!--
+            create_symlink macrodef
+
+                  dirscan - the folder where the search begins
+                  propNameSymFile, propNameSkipSyml,propNameExclude,uncicodevar - required attributes, their value is a random unique name
+                  regSkip - folder that will be cut out of the way when creating symbolic link inn the build/dev
+                  overwrite - isset attr overwrite, else not overwrite
+                  searchOnly  - files that will be selected from the dirscan
+                  skipDir  - files that will be excluded in the dirscan
+            create_symlinkDir
+                  dirscan - the folder where the search begins
+                  uncicodevar,varNameSymDir  -  required attributes, their value is a random unique name
+                  searchOnly  -  files that will be selected from dirscan
+
+         -->
+       
+        <create_symlink dirscan="submodules" uncicodevar="uni4"  searchOnly="root.*/" propNameSymFile='var5' propNameSkipSyml='skypfiles5' propNameExclude='exclude5' regSkip='(root.*?/)' /> 
+        <create_symlink dirscan="submodules" uncicodevar="uni3" searchOnly="root/" propNameSymFile='var3' propNameSkipSyml='skypfiles3' propNameExclude='exclude3' regSkip='(root.*?/)' />
+        <create_symlink dirscan="submodules" uncicodevar="uni1"  searchOnly="common/" propNameSymFile='var1' propNameSkipSyml='skypfiles1' propNameExclude='exclude1' regSkip='(common/)'/>
+        <create_symlink dirscan="submodules" uncicodevar="uni2" skipDir="**/root*/** **/common/** lang/*/descr/** "  propNameSymFile='var2' propNameSkipSyml='skypfiles2' propNameExclude='exclude2' />
+        
+
+        
+        
+
+
+        
+       <create_symlinkDir dirscan="submodules"   uncicodevar="uni6" searchOnly="lang/*/descr" varNameSymDir="dirsyml1"/> 
+       <delete dir="${basedir}" includes="${FileSymlinkRecreateFile}, ${FileExludeFileSet},${FileSymlinkRecreateDir}" /> 
+    </target>
+
+    <target name="unsetBuildDir" if="IsDevDir">
+        <delete dir="${hostDir}" followsymlinks="false"  removenotfollowedsymlinks="true" />
+        <delete dir="${hostDir}" />
+    </target>
+</project>

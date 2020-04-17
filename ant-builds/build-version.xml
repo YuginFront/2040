@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<project name="version-build" default="create-version" basedir="../">
+
+    <defaultexcludes add="**/.ide/"/>
+
+    <property name="project-number" value="11" />
+    <property name="path-submodules" value="submodules" />
+    <property name="path-build" value="build/" />
+    <property name="version-file-name" value="version" />
+    <property name="exclude-version" value="**/${version-file-name}" />
+
+    <target name="create-version">
+        <mkdir dir="${path-build}"/>
+        <delete file="${path-build}/${version-file-name}"/>
+        <concat destfile="${path-build}/${version-file-name}" fixlastline="yes">
+            <fileset dir="" includes="${version-file-name}"/>
+            <string>=============================</string>
+            <fileset dir="" includes="${path-submodules}/**/${version-file-name}" excludes="${version-file-name}"/>
+        </concat>
+    </target>
+</project>

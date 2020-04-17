@@ -1,0 +1,134 @@
+// Global Base variables
+// name started with '__' (double _) and use camelCamp name style
+
+$__useBXZForAll: 0; // switch off 'box-sizing: border-box;' in mixins
+// Colors
+$__textColor: #000;
+$__bgColor: #fff;
+$__borderColor: $__textColor;
+//Icons
+$__icon_font_name: '';
+$__sprite_url: "../img/sprite.png";
+
+$__use-category-comments: true; // use `true` for dev version
+$__use-css-comments: true; // use `true` for dev version
+$__viewport: ''; // buffer variable
+// View port breakpoints
+$__viewports: (
+        xs:'',
+        sm: 560px,
+        md: 768px,
+        lg: 1025px,
+        xl: 1260px,
+);
+// Media queries rules
+$__media: (
+        xs: '',
+        sm: 'only screen and (min-width: #{map_get($__viewports, sm)})',
+        md: "only screen and (min-width: #{map_get($__viewports, md)})",
+        lg: "only screen and (min-width: #{map_get($__viewports, lg)})",
+        xl: "only screen and (min-width: #{map_get($__viewports, xl)})",
+        dev: "only screen and (max-width: #{map_get($__viewports, lg)-1px})",
+        mob: "only screen and (max-width: #{map_get($__viewports, md)-1px})",
+        xso: "only screen and (max-width: #{map_get($__viewports, sm)-1px})",
+        smo: "only screen and (min-width: #{map_get($__viewports, sm)}) and (max-width: #{map_get($__viewports, md)-1px})",
+        mdo: "only screen and (min-width: #{map_get($__viewports, md)}) and (max-width: #{map_get($__viewports, lg)-1px})",
+        lgo: "only screen and (min-width: #{map_get($__viewports, lg)}) and (max-width: #{map_get($__viewports, xl)-1px})",
+);
+
+// Categories
+$__categories: (
+        typography,
+        helpers,
+        structure,
+        buttons,
+        lists,
+        blocks,
+        forms,
+        tables,
+        other,
+);
+
+// Global Project variables
+// name started with 'g_' and use camelCamp name style
+$__useGridFlex: 0;
+
+// FN _font(style,key)
+/// fw
+$g_FontWeight: (
+        xthink:200,
+        think:300,
+        regular:400,
+        medium:500,
+        sbold:600,
+        bold:700,
+        xbold:900
+);
+/// ff
+$g_FontFamily: (
+        base: ("Helvetica Neue", "Helvetica", "Arial", sans-serif)
+);
+/// lh
+$g_LineHeight: (
+        base: 1.5em
+);
+/// fz
+$g_FontSize: (
+        base: 14px,
+        h1: 28px,
+        h2: 24px,
+        h3: 22px,
+        h4: 18px,
+        h5: 16px,
+        h6: 14px,
+);
+
+// FN _color()
+$g_Color: (
+    // DEF
+        text: rgb(38, 54, 69),
+        brandColor: #388bc2,
+        accent: #fe9540,
+        border: #bbb,
+        link: #006dff,
+    // OTHER
+);
+
+// FN _width()
+$g_Width: (
+);
+
+// FN _height()
+$g_Height: (
+        tdHeight: 82px,
+);
+
+// FN _size() - global edit
+$g_Size: (
+    // DEF
+        bdrs: 0px
+    // OTHER
+);
+
+// FN _ind()
+$g_Indentations: (
+        h1: 0 0 0.67em,
+        h2: 0 0 0.67em,
+        h3: 0 0 0.67em,
+        h4: 0 0 0.67em,
+        h5: 0 0 0.67em,
+        h6: 0 0 0.67em,
+        p: 0 0 0.67em,
+);
+
+// FN _bgc()
+$g_BgColors: (
+        body: #e9ecee,
+        input: #fff,
+        button: #ccc,
+        td: #fff,
+);
+
+// FN _bgi()
+$g_BgImages: (
+);

@@ -1,0 +1,37 @@
+// Placeholders multiblocks
+
+@mixin pl-multiblocks(){
+    @if $__viewport == xs {
+
+    }
+    @if $__viewport == sm {
+
+    }
+    @if $__viewport == md {
+
+    }
+    @if $__viewport == lg {
+
+    }
+    @if $__viewport == xl {
+
+    }
+    @if $__viewport == dev {
+
+    }
+    @if $__viewport == mob {
+
+    }
+    @if $__viewport == xso {
+
+    }
+    @if $__viewport == smo {
+
+    }
+    @if $__viewport == mdo {
+
+    }
+    @if $__viewport == lgo {
+
+    }
+}

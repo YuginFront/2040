@@ -1,0 +1,95 @@
+$e_btns: (
+        bg_accent: _color(accent),
+        borderColor: _color(accent),
+        borderWidth: 1px,
+        ff: _font(ff, base),
+        fz: 13px,
+        lh: 1.2em,
+        br: 5px,
+);
+@function _btns($var) {
+    @return map_get($e_btns, $var);
+}
+
+@mixin btns{
+    @if $__use-css-comments{
+        /** btns #{$__viewport} */
+    }
+    @if $__viewport == xs{
+        %btn-inverse {
+            background-color: transparent;
+            border: _btns(borderWidth) solid _btns(borderColor);
+            color: _color(accent);
+        }
+        %btn-acc {
+            background-color: _btns(bg_accent);
+            border: _btns(borderWidth) solid _btns(borderColor);
+            color: #fff;
+        }
+
+        %btn{
+            display: inline-block;
+            text-align: center;
+            font-family: _btns(ff);
+            font-size: _btns(fz);
+            font-weight: _font(fw,bold);
+            line-height: _btns(lh);
+            padding: 9px 14px;
+            border-radius: _btns(br);
+            cursor: pointer;
+            outline: none;
+            text-decoration: none;
+            position: relative;
+            border: _btns(borderWidth) solid _btns(borderColor);
+            min-width: 85px;
+
+            &:before{
+                margin-right: 4px;
+                vertical-align: middle;
+            }
+            &:after{
+                margin-left: 4px;
+                vertical-align: middle;
+            }
+
+            &[disabled],
+            &.disabled{
+                opacity: 0.5;
+                cursor: default;
+            }
+        }
+
+        .btn,
+        .button input,
+        input[type="submit"],
+        input[type="reset"],
+        button,
+        input.btn{
+            @extend %btn;
+            background-color: _color(accent);
+            color: #fff;
+
+            &:hover{
+                color: _color(accent);
+                background: #fff;
+                border: 1px solid _color(accent);
+                text-decoration: none;
+            }
+        }
+
+        .btn{
+            &-acc {
+                @extend %btn-acc;
+                &:hover {
+                    @extend %btn-inverse;
+                }
+            }
+            &-inverse {
+                @extend %btn-inverse;
+                &:hover {
+                    @extend %btn-acc;
+                }
+            }
+        }
+    }
+}

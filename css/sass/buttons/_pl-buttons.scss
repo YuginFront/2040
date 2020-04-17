@@ -1,0 +1,40 @@
+// Placeholders buttons
+
+@mixin pl-buttons($v:false){
+    @if not $v and $__viewport {
+        $v: $__viewport;
+    }
+    @if $v == xs {
+
+    }
+    @if $v == sm {
+
+    }
+    @if $v == md {
+
+    }
+    @if $v == lg {
+
+    }
+    @if $v == xl {
+
+    }
+    @if $v == dev {
+
+    }
+    @if $v == mob {
+
+    }
+    @if $v == xso {
+
+    }
+    @if $v == smo {
+
+    }
+    @if $v == mdo {
+
+    }
+    @if $v == lgo {
+
+    }
+}

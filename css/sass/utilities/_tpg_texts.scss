@@ -1,0 +1,11 @@
+
+// .text-... , .label-... , .message-... , .link-...
+
+@mixin tpg_texts(){
+    @if $__use-css-comments{
+        /** tpg_texts #{$__viewport} */
+    }
+    @if $__viewport == xs{
+
+    }
+}

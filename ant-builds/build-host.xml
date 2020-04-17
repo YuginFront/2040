@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<project name="host-build" default="init" basedir="../">
+
+    <defaultexcludes add="**/.idea/"/>
+    <defaultexcludes add="**/.git*"/>
+
+    <property name="project-number" value="11" />
+    <property name="path-submodules" value="submodules" />
+    <property name="path-build" value="./" />
+    <property name="exclude-version" value="**/version" />
+
+    <target name="init">
+        <antcall target="copy-submodules">
+            <param name="exclude-roots" value="root*/" />
+            <param name="exclude-libs" value="libs/" />
+            <param name="path-root1" value="${path-submodules}/root/" />
+            <param name="path-root2" value="${path-submodules}/root.project_${project-number}/" />
+            <param name="path-lib" value="${path-submodules}/libs/" />
+        </antcall>
+    </target>
+
+    <target name="copy-submodules">
+        <copy todir="${path-build}" includeEmptyDirs="true">
+            <fileset dir="${path-root2}">
+                <present targetdir="${path-build}" present="srconly" />
+                <exclude name="${exclude-roots}" />
+                <exclude name="${exclude-libs}" />
+            </fileset>
+        </copy>
+        <copy todir="${path-build}" includeEmptyDirs="true">
+            <fileset dir="${path-root1}">
+                <present targetdir="${path-build}" present="srconly" />
+            </fileset>
+        </copy>
+        <copy todir="${path-build}" includeEmptyDirs="true">
+            <fileset dir="${path-submodules}">
+                <present targetdir="${path-build}" present="srconly" />
+                <exclude name="${exclude-roots}" />
+                <exclude name="${exclude-version}" />
+            </fileset>
+        </copy>
+        <copy todir="${path-build}/js" includeEmptyDirs="true">
+            <fileset dir="${path-lib}">
+                <present targetdir="${path-build}/js" present="srconly" />
+            </fileset>
+        </copy>
+    </target>
+</project>

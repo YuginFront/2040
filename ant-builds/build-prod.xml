@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<project name="production-build" default="init" basedir="../">
+
+    <defaultexcludes add="**/.idea/"/>
+    <defaultexcludes add="**/.git*"/>
+
+    <property name="project-number" value="17" />
+    <property name="path-submodules" value="submodules" />
+    <property name="path-build" value="build/prod" />
+    <property name="exclude-version" value="**/version" />
+    <property name="exclude-variants" value="variant*/" />
+
+    <target name="init">
+        <delete dir="${path-build}"/>
+        <mkdir dir="${path-build}"/>
+        <!-- <antcall target="copy-submodules">
+            <param name="exclude-roots" value="root*/" />
+            <param name="exclude-libs" value="libs/" />
+            <param name="path-root1" value="${path-submodules}/root/" />
+            <param name="path-root2" value="${path-submodules}/root.project_${project-number}/" />
+            <param name="path-lib" value="${path-submodules}/libs/" />
+        </antcall> -->
+        <antcall target="copy-root-files">
+            <param name="exclude-submodues" value="**/*submodules*/" />
+            <param name="exclude-builds" value="**/*build*/" />
+        </antcall>
+        <antcall target="create-version">
+            <param name="file-name" value="version" />
+        </antcall>
+    </target>
+
+    <!-- <target name="copy-submodules">
+        <copy todir="${path-build}" overwrite="true" includeEmptyDirs="true">
+            <fileset dir="${path-submodules}">
+                <exclude name="${exclude-roots}" />
+                <exclude name="${exclude-libs}" />
+                <exclude name="${exclude-version}" />
+            </fileset>
+        </copy>
+        <copy todir="${path-build}" overwrite="true" includeEmptyDirs="true">
+            <fileset dir="${path-root1}" excludes="${exclude-version}" />
+        </copy>
+        <copy todir="${path-build}" overwrite="true" includeEmptyDirs="true">
+            <fileset dir="${path-root2}" excludes="${exclude-version}" />
+        </copy>
+        <copy todir="${path-build}/js" overwrite="true" includeEmptyDirs="true">
+            <fileset dir="${path-lib}" excludes="${exclude-version}" />
+        </copy>
+    </target> -->
+
+    <target name="copy-root-files">
+        <copy todir="${path-build}" overwrite="true" includeEmptyDirs="true">
+            <fileset dir=".">
+                <exclude name="${exclude-builds}" />
+                <exclude name="${exclude-submodues}" />
+                <exclude name="${exclude-variants}" />
+                <exclude name="${exclude-version}" />
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="create-version">
+        <concat destfile="${path-build}/${file-name}" fixlastline="yes">
+            <fileset dir="" includes="${file-name}"/>
+            <fileset dir="" includes="${path-submodules}/**/${file-name}" excludes="${file-name}"/>
+        </concat>
+    </target>
+</project>

@@ -1,0 +1,104 @@
+#image:  bobey/docker-gitlab-ci-runner-php5.6
+
+variables:
+  PROJECT_NAME: "2040"
+  PRODUCTION_BUILD_PATH: "build/prod"
+  CAMP: "8051"
+  CORE: "rxp"
+  HOST_ZOO: ""
+
+before_script:
+  - if [ -n "${TRIGGER_NAME}" ]; then TRIGGER_NAME=".${TRIGGER_NAME}"; fi
+  - if [ -n "${USER_HOST}" ]; then
+      HOST_ZOO="${USER_HOST}";
+    else
+      HOST_ZOO="${CI_BUILD_REF_NAME}${TRIGGER_NAME}";
+    fi
+  - echo $HOST_ZOO
+
+stages:
+  - build
+  - test
+  - deploy
+  - clear
+
+buildJob:
+  stage: build
+  script:
+    - git submodule update --recursive --init --remote --merge
+#switch to def ref if exist
+    - if [ -n "${DEF_REF}" ]; then
+        git submodule foreach --recursive 'git checkout $DEF_REF || :';
+        git submodule foreach --recursive 'git pull origin $DEF_REF || :';
+      fi
+#switch to task ref if exist
+#or switch to requested branch
+    - if [ -n "${GLOBAL_TASK}" ]; then
+        git submodule foreach --recursive 'git checkout $GLOBAL_TASK || :';
+        git submodule foreach --recursive 'git pull origin $GLOBAL_TASK || :';
+      else
+        if [[ "${CI_BUILD_REF_NAME}" != 'master' && "${CI_BUILD_REF_NAME}" != 'develop' && "${CI_BUILD_REF_NAME}" != 'stable' ]]; then
+          git submodule foreach --recursive 'git checkout $CI_BUILD_REF_NAME || :';
+          git submodule foreach --recursive 'git pull origin $CI_BUILD_REF_NAME || :';
+        fi
+      fi
+    - if [ -n "${TRIGGER_BRANCH}" ]; then
+        if [ -n "${TRIGGER_NAME}" ]; then
+          cd $CI_PROJECT_DIR/submodules/$TRIGGER_FOLDER;
+          git checkout $TRIGGER_BRANCH;
+          git pull origin $TRIGGER_BRANCH;
+        fi
+      fi
+    - php ~/buildVersion.php -path=$CI_PROJECT_DIR -setversion=go
+    - ant -f $CI_PROJECT_DIR/ant-builds/build-prod.xml
+    - if [ -d $BUILD_PATH/$PROJECT_NAME.$HOST_ZOO.$CI_BUILD_REF/ ]; then
+        rm -R $BUILD_PATH/$PROJECT_NAME.$HOST_ZOO.$CI_BUILD_REF/;
+      fi
+    - mkdir -p $BUILD_PATH/$PROJECT_NAME.$HOST_ZOO.$CI_BUILD_REF/$HOST_ZOO
+    - cp -R $CI_PROJECT_DIR/$PRODUCTION_BUILD_PATH/. $BUILD_PATH/$PROJECT_NAME.$HOST_ZOO.$CI_BUILD_REF/$HOST_ZOO
+    - mv $BUILD_PATH/$PROJECT_NAME.$HOST_ZOO.$CI_BUILD_REF/$HOST_ZOO/screenshot.gif $BUILD_PATH/$PROJECT_NAME.$HOST_ZOO.$CI_BUILD_REF/$CAMP-$PROJECT_NAME-1-1.gif
+    - zip -q -r $BUILD_PATH/$PROJECT_NAME.$HOST_ZOO.$CI_BUILD_REF/$CAMP-$PROJECT_NAME-1-1.zip $BUILD_PATH/$PROJECT_NAME.$HOST_ZOO.$CI_BUILD_REF/$HOST_ZOO/
+  tags:
+    - build
+  except:
+    - tags
+
+testJob:
+  stage: test
+  script:
+    - echo "No any tests!"
+  tags:
+    - test
+  except:
+    - tags
+
+deploy-zoo:
+  stage: deploy
+  script:
+    - php ~/deployZoo.php -service=zoo -branch=$HOST_ZOO -project=$PROJECT_NAME -dump=$CI_BUILD_REF -logs=true
+  tags:
+    - deploy
+  except:
+    - tags
+
+# deploy-devel:
+#   stage: deploy
+#   script:
+#     - php ~/deployZoo.php -service=devel -branch=$CI_BUILD_REF_NAME -project=$PROJECT_NAME -dump=$CI_BUILD_REF -core=$CORE -build=1 -camp=$CAMP
+#   tags:
+#     - deploy
+#   only:
+#     - master
+#   except:
+#     - tags
+
+clearJob:
+  stage: clear
+  script:
+    - rm -r $BUILD_PATH/$PROJECT_NAME.$HOST_ZOO.$CI_BUILD_REF
+    - php ~/order.php -id=$SELF_ID -dump=$ORDER_DUMP
+  tags:
+    - build
+  except:
+    - tags
+  when: always

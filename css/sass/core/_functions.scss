@@ -1,0 +1,108 @@
+// Global Base functions
+
+//# SPECIAL
+
+// Add '-' before send string
+// @param string $part
+// @return string | ''
+@function add-dash($part) {
+  @if $part != ''{
+    $part: -#{$part}
+  }
+  @return $part;
+}
+
+// Add important
+// @param bool $add
+// @return string | ''
+@function add-important($add){
+  $return:'';
+  @if $add == 1{
+    $return:''!important;
+  }
+  @return $return;
+}
+
+
+// Check empty or 0 for var and set by default
+// @param string|bool $var - for if condition
+// @param * $def - value by default
+// @return $def
+@function empty($var,$def:'') {
+  @if $var != '' {
+    $def: $var;
+  } @else if $var == 0 {
+    $def: '';
+  }
+  @return $def;
+}
+
+// Global Project functions
+
+//# MAPS
+
+@function _palette($var){
+  @if $var == empty{
+    @return "";
+  }
+  @return map_get($colorMap,$var);
+}
+@function _color($var){
+  @if $var == empty{
+    @return "";
+  }
+  @return map_get($g_Color,$var);
+}
+@function _width($var){
+  @if $var == empty{
+    @return "";
+  }
+  @return map_get($g_Width,$var);
+}
+@function _height($var){
+  @if $var == empty{
+    @return "";
+  }
+  @return map_get($g_Height,$var);
+}
+@function _size($var){
+  @if $var == empty{
+    @return "";
+  }
+  @return map_get($g_Size,$var);
+}
+@function _ind($var){
+  @if $var == empty{
+    @return "";
+  }
+  @return map_get($g_Indentations,$var);
+}
+@function _bgc($var){
+  @if $var == empty{
+    @return "";
+  }
+  @return map_get($g_BgColors,$var);
+}
+@function _bgi($var){
+  @if $var == empty{
+    @return "";
+  }
+  @return map_get($g_BgImages,$var);
+}
+@function _font($fn,$var){
+  @if $var == empty{
+    @return "";
+  }
+  @if $fn == fw{
+    @return map_get($g_FontWeight,$var);
+  }
+  @if $fn == fz{
+    @return map_get($g_FontSize,$var);
+  }
+  @if $fn == lh{
+    @return map_get($g_LineHeight,$var);
+  }
+  @if $fn == ff{
+    @return map_get($g_FontFamily,$var);
+  }
+}

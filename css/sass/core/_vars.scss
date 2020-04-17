@@ -47,6 +47,7 @@ $__categories: (
         forms,
         tables,
         other,
+        vendor
 );
 
 // Global Project variables
@@ -66,7 +67,8 @@ $g_FontWeight: (
 );
 /// ff
 $g_FontFamily: (
-        base: ("Helvetica Neue", "Helvetica", "Arial", sans-serif)
+        base: ('Lato', sans-serif),
+        second: ('Ubuntu', sans-serif)
 );
 /// lh
 $g_LineHeight: (
@@ -74,13 +76,13 @@ $g_LineHeight: (
 );
 /// fz
 $g_FontSize: (
-        base: 14px,
-        h1: 28px,
-        h2: 24px,
-        h3: 22px,
+        base: 16px,
+        h1: 48px,
+        h2: 32px,
+        h3: 20px,
         h4: 18px,
         h5: 16px,
-        h6: 14px,
+        h6: 15px,
 );
 
 // FN _color()

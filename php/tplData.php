@@ -35,10 +35,11 @@ $_VARS['page-index'] = [
 $_VARS['page-product'] = [
     'layout'=>['layout_second'],
     [
-        'layout_base'=>[
+        'layout_second'=>[
             [
                 'page-class'=>'layout_second',
             ],
         ],
+
     ],
 ];

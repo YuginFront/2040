@@ -3,11 +3,11 @@
  * @reserved 'page'
  * @reserved 'data'
  */
-_setData([
-    'page-class'=>'layout',
-]);
+
 ?>
 
-<div class="">
-    <? render(_var('page', true), _var('data')); ?>
+<div class="<? _var('page-class'); ?>">
+	<div class="container">
+    	<? render(_var('page', true), _var('data')); ?>
+    </div>
 </div>

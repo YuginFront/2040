@@ -1,0 +1,21 @@
+@mixin _str_base(){
+
+	@if $__use-css-comments{
+        /** str_base #{$__viewport} */
+    }
+	
+	@if $__viewport == xs{
+		.site{
+			max-width: 11500px;
+			padding-right: 15px;
+			padding-left: 15px;
+			margin-right: auto;
+			margin-left: auto;
+		}
+
+		.box{
+			margin-bottom: 70px;
+		}
+	}
+
+}

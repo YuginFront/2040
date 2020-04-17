@@ -86,11 +86,14 @@ $g_FontSize: (
 // FN _color()
 $g_Color: (
     // DEF
-        text: rgb(38, 54, 69),
-        brandColor: #388bc2,
-        accent: #fe9540,
-        border: #bbb,
-        link: #006dff,
+
+        white: #fff,
+        red: #BC1B47,
+        black: #2B2B2B,
+        brandColor: #0044E9,
+        greyText: #7F8694,
+        stroke: DCDEE2
+
     // OTHER
 );
 
@@ -100,7 +103,7 @@ $g_Width: (
 
 // FN _height()
 $g_Height: (
-        tdHeight: 82px,
+        
 );
 
 // FN _size() - global edit
@@ -123,10 +126,9 @@ $g_Indentations: (
 
 // FN _bgc()
 $g_BgColors: (
-        body: #e9ecee,
-        input: #fff,
-        button: #ccc,
-        td: #fff,
+        body: _color(white),
+        input:  _color(white),
+        td:  _color(white)
 );
 
 // FN _bgi()

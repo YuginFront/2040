@@ -6,35 +6,25 @@
 	
 	@if $__viewport == xs{
 
-		:root {
-		  position: relative;
-		  min-height: 100%;
-		}
-
-		:root::before {
-		  content: "";
-		  width: 100%;
-		  height: 100%;
-		  background: linear-gradient(to top, #f00, transparent 1px) 0 0 / 100% 24px, /* основная сетка */
-		              transparent /* цвет фона */
-		              linear-gradient(to top, #f99, transparent 1px) 0 0 / 100% 16px; /* дополнительная сетка */
-		  position: absolute;
-		  z-index: 99;
-		  pointer-events: none;
-		}
-
-
-		.site{
-			max-width: 11500px;
+		.container{
+			max-width: 1150px;
 			padding-right: 15px;
 			padding-left: 15px;
 			margin-right: auto;
 			margin-left: auto;
 		}
 
-		.box{
-			margin-bottom: 70px;
+		.main, main{
+			padding-top: 32px;
 		}
+	}
+
+	@if $__viewport == lg{
+
+		.main{
+			padding-top: 48px;
+		}
+		
 	}
 
 }

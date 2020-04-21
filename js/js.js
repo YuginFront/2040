@@ -1,22 +1,4 @@
-/**
- * old browsers support
- */
-if(window.Element){
-    if (!Element.prototype.matches)
-        Element.prototype.matches = Element.prototype.msMatchesSelector ||
-            Element.prototype.webkitMatchesSelector;
 
-    if (!Element.prototype.closest)
-        Element.prototype.closest = function(s) {
-            let el = this;
-            if (!document.documentElement.contains(el)) return null;
-            do {
-                if (el.matches(s)) return el;
-                el = el.parentElement || el.parentNode;
-            } while (el !== null && el.nodeType === 1);
-            return null;
-        };
-}
 /**
  * Offset
  */
@@ -53,54 +35,8 @@ function isset(e,t){
     }
     // return 0;
 }
-/**
- * Event emulation
- * @param {object} target
- * @param {string} event
- */
-function emulateEvent(target,event){
-    if ("createEvent" in document) {
-        let evObj = document.createEvent("HTMLEvents");
-        evObj.initEvent(event, false, true);
-        target.dispatchEvent(evObj);
-    }
-    else
-        target.fireEvent("on"+event);
-}
-/**
- * Parse CSS selector and get elements.
- * @param {object} e = [HTMLDOMElement]
- * @param {String} s = [css selector]
- */
-function getByCSSSelector(e,s){
-    // take all clossest selectors
-    let bxClSl = s.split(',');
-    let bx = [];
-    bxClSl.forEach(item=>{
-        // take selector for search in closest parent
-        let items = item.split('=');
-        if(items.length > 1 && items[1].length && items[1]!==' '){
-            let itemsEl = e.closest(items[0]);
-            let buff = itemsEl.querySelectorAll(items[1]);
-            if(buff.length){
-                bx.push(...buff);
-            }
-        }else{
-            // custom modification
-            let clst = e.closest(items[0]);
-            if(clst === null){
-                // Look in document; TODO: Danger for non ID dependent elements;
-                clst = document.querySelectorAll(items[0]);
-                if(clst.length){
-                    bx.push(...clst);
-                }
-            }else{
-                bx.push(e.closest(items[0]));
-            }
-        }
-    });
-    return bx;
-}
+
+
 /**
  * Switch class in element and relative blocks.
  * @code
@@ -180,60 +116,31 @@ function gotoElement(e,shift,s,container){
     scrEl.animate({scrollTop: destination},s);
     return !0;
 }
-/**
- * validator scroll to first error field
- * @param form {object}
- * @param validator {object}
- * @param shift {number}
- * @param container {object}
- */
-function gotoInvalidElement(form, validator, shift, container){
-    if(typeof shift !== 'number'){
-        shift = 90;
-    }
-    if (validator.numberOfInvalids()>0){
-        gotoElement(validator.errorList[0].element,shift,null,container);
-    }
+
+
+(function () {
+    const listSelect = [].slice.apply(document.querySelectorAll('.custom-select select'));
+    listSelect.forEach((item) => {
+        setSexyValue(item);
+
+        item.addEventListener('change', function () {
+            setSexyValue(this);
+        })
+    });
+})();
+
+// function setSexyValue(select) {
+// const text = (select.name === 'language')
+//     ? select.value
+//     : select.options[select.selectedIndex].innerHTML;
+// select.previousElementSibling.innerHTML = text;
+// }
+
+function setSexyValue(select) {
+const text = select.options[select.selectedIndex].innerHTML;
+select.previousElementSibling.innerHTML = text;
 }
-/**
- * Cookies
- * @param name
- * @return {*}
- */
-function getCookie(name) {
-    let matches = document.cookie.match(new RegExp(
-        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-    ));
-    return matches ? decodeURIComponent(matches[1]) : undefined;
-}
-function setCookie(name, value, options) {
-    options = options || {};
 
-    let expires = options.expires;
-
-    if (typeof expires === "number" && expires) {
-        let d = new Date();
-        d.setTime(d.getTime() + expires * 1000);
-        expires = options.expires = d;
-    }
-    if (expires && expires.toUTCString) {
-        options.expires = expires.toUTCString();
-    }
-
-    value = encodeURIComponent(value);
-
-    let updatedCookie = name + "=" + value;
-
-    for (let propName in options) {
-        updatedCookie += "; " + propName;
-        let propValue = options[propName];
-        if (propValue !== true) {
-            updatedCookie += "=" + propValue;
-        }
-    }
-
-    document.cookie = updatedCookie;
-}
 /**
  * device sets
  */
@@ -332,14 +239,3 @@ window.addEventListener('resize',function(ev){
 
     }
 });
-document.addEventListener('scroll',function(ev){
-    // close all selects when scroll
-    if(!ev.target.classList || !(ev.target.classList && ev.target.classList.contains('ui-menu'))){
-        let openedSelectMenus = document.querySelectorAll('.ui-selectmenu-button-open');
-        if(openedSelectMenus.length){
-            openedSelectMenus.forEach(btn=>{
-                emulateEvent(btn,'click');
-            });
-        }
-    }
-},true);

@@ -72,17 +72,40 @@ $g_FontFamily: (
 );
 /// lh
 $g_LineHeight: (
-        base: 1.5em
+        base: 1.5em,
+       
+        lh_h1_xs: 1.45454545em,
+        lh_h2_xs: 1.84615385em,
+        lh_h3_xs: 1.2em,
+        lh_h4_xs: 1.5em,
+        lh_h5_xs: 1.5em,
+        lh_h6_xs: 1.5em,
+
+        lh_h1: 1em,
+        lh_h2: 1.45454545em,
+        lh_h3: 1.04347826em,
+        lh_h4: 1.5em,
+        lh_h5: 1.5em,
+        lh_h6: 1.5em
+
 );
 /// fz
 $g_FontSize: (
         base: 16px,
-        h1: 48px,
-        h2: 32px,
-        h3: 20px,
-        h4: 18px,
-        h5: 16px,
-        h6: 15px,
+
+        h1_xs: 2.0625em,
+        h2_xs: 1.625em,
+        h3_xs: 1.25em,
+        h4_xs: 1em,
+        h5_xs: 1em,
+        h6_xs: 1em,
+
+        h1: 3em,
+        h2: 2.0625em,
+        h3: 1.4375em,
+        h4: 1em,
+        h5: 1em,
+        h6: 1em
 );
 
 // FN _color()
@@ -92,9 +115,11 @@ $g_Color: (
         white: #fff,
         red: #BC1B47,
         black: #2B2B2B,
+        blackTrue: #000, 
+        blackSecond: #424242,
         brandColor: #0044E9,
         greyText: #7F8694,
-        stroke: DCDEE2
+        stroke: #DCDEE2
 
     // OTHER
 );
@@ -111,26 +136,36 @@ $g_Height: (
 // FN _size() - global edit
 $g_Size: (
     // DEF
-        bdrs: 0px
+        // bdrs: 0px
     // OTHER
 );
 
 // FN _ind()
 $g_Indentations: (
-        h1: 0 0 0.67em,
-        h2: 0 0 0.67em,
-        h3: 0 0 0.67em,
-        h4: 0 0 0.67em,
-        h5: 0 0 0.67em,
-        h6: 0 0 0.67em,
-        p: 0 0 0.67em,
+
+        h1_xs: 0.72727273em 0 1.45454546em,
+        h2_xs: 0.92307692em 0 0.92307692em,
+        h3_xs: 1.2em 0 0em,
+        h4_xs: 1.5em 0 0em,
+        h5_xs: 1.5em 0 0em,
+        h6_xs: 1.5em 0 0em,
+
+        h1: 0.5em 0 1em,
+        h2: 0.72727273em 0 0.72727273em,
+        h3: 1.04347826em 0 0,
+        h4: 1.5em 0 0,
+        h5: 1.5em 0 0,
+        h6: 1.5em 0 0,
+
+        p: 0 0 1em
 );
 
 // FN _bgc()
 $g_BgColors: (
         body: _color(white),
         input:  _color(white),
-        td:  _color(white)
+        td:  _color(white),
+        border: _color(stroke)
 );
 
 // FN _bgi()

@@ -12,12 +12,12 @@
 // @include forms-lgo();
 
 $e_forms: (
-        fz: _font(fz, base),
-        bgc_button: _bgc(button),
+        // fz: _font(fz, base),
+        // bgc_button: _bgc(button),
         bgc_input: _bgc(input),
-        p_input: 5px 10px,
+        // p_input: 5px 10px,
         bd_input: 1px solid _color(border),
-        c: _color(text),
+        // c: _color(text),
 );
 
 @function _forms($var) {
@@ -43,22 +43,22 @@ $e_forms: (
         input[type="color"],
         select,
         textarea {
-            color: _forms(c);
-            border: _forms(bd_input);
-            padding: _forms(p_input);
+            // color: _forms(c);
+            // border: _forms(bd_input);
+            // padding: _forms(p_input);
             background-color: _forms(bgc_input);
         }
         button,
         input[type="submit"]{
-            background-color: _forms(bgc_button);
-            border: _forms(bd_input);
+            // background-color: _forms(bgc_button);
+            // border: _forms(bd_input);
         }
         legend {
-            font-size: _forms(fz);
-            color: _forms(c);
+            // font-size: _forms(fz);
+            // color: _forms(c);
         }
         fieldset {
-            border: _forms(bd_input);
+            // border: _forms(bd_input);
         }
     }
 }

@@ -26,6 +26,7 @@
 @include _media() {
     @include empty_content($__viewport);
     @include pl-multiblocks;
+    @include helpers-clearfix;
 
     @include _category(typography, 'styles for default html tag s and similar classes') {
         @include pl-typography;
@@ -36,7 +37,6 @@
         @include pl-utilities;
         @include tpg_texts;
         @include structure-grid($__viewport);
-        @include helpers-clearfix;
         @include helpers-hidden;
 
     }

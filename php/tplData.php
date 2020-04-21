@@ -386,6 +386,17 @@ $_VARS['form_select-option'] = [
     ],
 ];
 
+$_VARS['form-header-search'] = [
+    [
+        // 'action' => 'Yugin_The_Best.php',
+        // 'method' => ' ',
+        // 'self' => ' ',
+        // 'selected-text' => ' ',
+        // 'select-name' => ' ',
+        // 'id' => ' ',
+        
+    ],
+];
 
 // LAYOUTS
 

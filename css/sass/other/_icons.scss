@@ -110,4 +110,9 @@
             @include sprite($icon-sitemap);
         }
     }
+    &-search {
+        &:before {
+            @include sprite($icon-search);
+        }
+    }
 }

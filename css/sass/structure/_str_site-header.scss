@@ -9,8 +9,15 @@
 		.top-line{
 			&-content{
 				position: relative;
+				min-height: 56px;
+				padding-top: 8px;
+				padding-bottom: 2px;
 			}
 			box-shadow: 0px 2px 6px rgba(49, 61, 103, 0.12), 0px 0px 2px rgba(27, 47, 58, 0.25);
+		}
+
+		.logo{
+			padding-left: 1px;
 		}
 
 		.custom-select{
@@ -48,8 +55,6 @@
 
 		.cart{
 			position: absolute;
-			top: 0;
-			right: 0;
 		}
 		
 	}
@@ -70,13 +75,11 @@
 		}
 
 		.logo{
-			// -ms-flex: 0 0 16.666667%;
-			// flex: 0 0 16.666667%;
-  			// max-width: 16.666667%;
-			padding-left: 1px;
+
 		}
 
 		.phone{
+			float: left;
 			max-width: 161px;
 			padding-top: 12px;
 			padding-left: 23px;
@@ -109,6 +112,16 @@
 			}
 		}
 		
+	}
+
+	@if $__viewport == dev{
+		.cart{
+			top: 50%;
+			right: 17px;
+			margin-top: -20px;
+			width: 40px;
+			height: 40px;
+		}
 	}
 
 }

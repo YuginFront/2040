@@ -11,10 +11,10 @@
 			<a href="/" class="logo col-lg col-lg-2">
 				<img src="img/logo.png" alt="Logo">
 			</a>
-			<div class="phone col-lg">
+			<div class="phone hidden-dev">
 				<img src="img/phone-top.png" alt="Phone">
 			</div>
-			<div class="switchers">
+			<div class="switchers hidden-dev">
 				<form action="/" method="post" class="switchers-item"> 
 				    <div class="custom-select language">
 				        <div class="selected-text   icon icon-arr-dwn">English</div>
@@ -62,7 +62,7 @@
 				</form>
 			</div>
 			<div class="cart">
-				<div class="icon icon-cart-dark"></div>
+				<div class="icon icon-cart-dark hidden-dev"></div>
 				<div class="btn-menu js-classSwitch" data-dbx-name=".swipe-menu,.swipe-overlay">
 			        <div class="btn-menu-inner">
 			            <span></span>

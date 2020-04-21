@@ -37,6 +37,7 @@
         @include tpg_texts;
         @include structure-grid($__viewport);
         @include helpers-clearfix;
+        @include helpers-hidden;
 
     }
 

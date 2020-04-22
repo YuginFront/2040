@@ -127,8 +127,28 @@
 				<div class="line bottom"></div>
 			</div>
 		</div>
-	    <div class="header-search site">	
+	    <div class="header-search">	
 			<? render('form-header-search'); ?>
+		</div>
+		<div class="cart-content">
+			<div class="cart-info icon icon-cart-light">
+				<div class="cart-count">2 item</div>
+				<div class="cart-total">$23.23</div>
+			</div>
+			<div class="btn-checkout">Checkout</div>
+		</div>
+		<nav>
+			<? render('list-primary',_var('data_list-menu')); ?>
+		</nav>
+		<div class="banner">
+			<div class="banner-content">
+				<div class="h3">Live support online</div>
+				<div class="banner-label">24/7/365</div>
+			</div>
+		</div>
+		<div class="swipe-phone">
+			<span>Our phone number:</span>
+			<img src="img/phone-white.png" alt="">
 		</div>
 	</div>
 </header>

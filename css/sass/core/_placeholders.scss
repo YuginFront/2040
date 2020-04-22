@@ -2,7 +2,11 @@
 
 @mixin pl-multiblocks(){
     @if $__viewport == xs {
-
+        %no-list{
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
     }
     @if $__viewport == sm {
 

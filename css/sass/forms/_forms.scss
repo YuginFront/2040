@@ -48,11 +48,17 @@ $e_forms: (
             // padding: _forms(p_input);
             background-color: _forms(bgc_input);
         }
+
+        input[type="text"]{
+            height: 40px;
+        }
+
         button,
         input[type="submit"]{
             // background-color: _forms(bgc_button);
             // border: _forms(bd_input);
         }
+
         legend {
             // font-size: _forms(fz);
             // color: _forms(c);

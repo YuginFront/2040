@@ -1,6 +1,6 @@
 <div class="container">
 	<ul class="color-palette">
-		<li class="icon icon-faq"></li>
+		
 	</ul>
 
 	<h1>H1 Lorem ipsum dolor.</h1>
@@ -10,7 +10,29 @@
 	<h5>H5 Lorem ipsum dolor.</h5>
 
 	<h1 class="page-title">H1 class page-title</h1>
-	<h3 class="product-name">H3 class product-name</h3>
+	<h3 class="h3">H3 class product-name</h3>
+
+	<div>
+		<h3>class btn </h3>
+		<div class="btn">Checkout</div>
+		<hr>
+		<h3>class .btn-tbl</h3>
+		
+		<div class="btn-tbl">Free registered mail shipping 10-21 days $0</div>
+		
+		<h3>class .btn-inv</h3>
+		<div class="btn-inv">Continue Shopping</div>
+		
+		<h3>class .btn-tbl-inv</h3>
+		<div class="btn-tbl-inv">Another shipping  $12.12</div>
+		
+		<h3>Checkout buttons example</h3>
+			<div class="btn-inv passed">Dosage</div>
+			<div class="btn-inv active">Package</div>
+			<div class="btn-inv">Shipping</div>
+			<div class="btn-inv">Checkout</div>
+
+	</div>
 
 	<h1>Choose your package.</h1>
 	<p>

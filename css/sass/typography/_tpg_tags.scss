@@ -153,9 +153,12 @@ $e_tpg_tags: (
 
 
         // h3 product-name
-        .product-name{
+        .h3{
             font-size: 20px;
-            line-height: 1.3em;
+            line-height: 1.2em;
+            font-family: _font(ff, second);
+            font-weight: 700;
+            letter-spacing: -1px;
         }
         
     }

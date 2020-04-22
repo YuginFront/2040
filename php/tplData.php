@@ -16,45 +16,51 @@ $_VARS['base']=[
 // TEMPLATES
 
 $_VARS['str_site-header'] = [
-    // 'type'=>'',
-    // 'file'=>[
-    //     'name'=>'str_site-header',
-    //     'ext'=>$_ext,
-    //     'skip'=>0,
-    // ],
+
     [
       'href_logo'=>'/',
       'src_logo'=>'img/logo.png',
       'src_logo-desktop'=>'img/logo.png',
       'alt_logo-img'=>'',
 
-      // 'data_blocks_switchers' => null,
+      'data_list-menu' => [
+        [
+            'self-class' => 'menu',
+            'data_list-primary-item' => [
+                [
+                    'class-item' => 'menu-item icon icon-contacts',
+                    'use_link' => 1,
+                    'text-menu-item' => 'Contact us',
+                ],
+                [
+                    'class-item' => 'menu-item icon icon-order',
+                    'use_link' => 1,
+                    'text-menu-item' => 'Track order',
+                ],
+                [
+                    'class-item' => 'menu-item icon icon-sitemap',
+                    'use_link' => 1,
+                    'text-menu-item' => 'Sitemap',
+                ],
+                [
+                    'class-item' => 'menu-item icon icon-faq',
+                    'use_link' => 1,
+                    'text-menu-item' => 'Faq',
+                ],
+                [
+                    'class-item' => 'menu-item icon icon-policies',
+                    'use_link' => 1,
+                    'text-menu-item' => 'Policies',
+                ],
+                [
+                    'class-item' => 'menu-item icon icon-about',
+                    'use_link' => 1,
+                    'text-menu-item' => 'About us',
+                ],
+            ],
+        ],
+      ],
 
-
-      // 'data_blocks_smart-cart' => null,
-
-      // 'data_list-contacts' => [
-      //   [
-      //       'self-class' => 'list-contacts hidden-dev',
-      //       'data_list-menu-item' => [
-      //         [
-      //             'class-menu-item' => 'list-contacts-item icon icon-phone-sm',
-      //             'text-menu-item'=>'<img src="img/phone-1.png" alt="">',
-
-      //             'use_link'=>0,
-
-      //         ],
-      //         [
-      //             'class-menu-item' => 'list-contacts-item icon icon-phone-sm',
-      //             'text-menu-item'=>'<img src="img/phone-2.png" alt="">',
-
-      //             'use_link'=>0,
-
-      //         ],
-
-      //       ],
-      //   ],
-      // ],
 
     ],
 ];
@@ -353,11 +359,6 @@ $_VARS['blocks_switchers'] = [
 
 $_VARS['form_sexy-select'] = [
    
-    // 'file'=>[
-    //     'name'=>'form_sexy-select',
-    //     'ext'=>$_ext,
-    //     'skip'=>0,
-    // ],
     [
         'action' => 'Yugin_The_Best.php',
         'method' => ' ',
@@ -388,16 +389,27 @@ $_VARS['form_select-option'] = [
 
 $_VARS['form-header-search'] = [
     [
-        // 'action' => 'Yugin_The_Best.php',
-        // 'method' => ' ',
-        // 'self' => ' ',
-        // 'selected-text' => ' ',
-        // 'select-name' => ' ',
-        // 'id' => ' ',
+
         
     ],
 ];
 
+$_VARS['list-primary'] = [
+
+    [
+      'data_list-primary-item' => null,
+    ],
+];
+
+$_VARS['list-primary-item'] = [
+
+    [
+      'class-item' => '',
+      'text-menu-item'=>'',
+      'use_link'=>1,
+    ],
+
+];
 // LAYOUTS
 
 $_VARS['layout_base'] = [

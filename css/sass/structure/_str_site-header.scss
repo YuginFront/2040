@@ -63,6 +63,8 @@
 			right: 0;
 			z-index: 999;
 			
+			display: none;
+
 			padding-top: 14px;
 			padding-bottom: 24px;
 			padding-left: 16px;
@@ -71,6 +73,10 @@
 			width: 360px;
 			height: 100%;
 			background-color: _color(brandColor);
+
+			&.active{
+				display: block;
+			}
 
 		}
 

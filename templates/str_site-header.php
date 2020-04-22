@@ -63,7 +63,7 @@
 			</div>
 			<div class="cart">
 				<div class="icon icon-cart-dark hidden-dev"></div>
-				<div class="btn-menu js-classSwitch" data-dbx-name=".swipe-menu,.swipe-overlay">
+				<div class="btn-menu js-classSwitch" data-dbx-name=".swipe-menu" >
 			        <div class="btn-menu-inner">
 			            <span></span>
 			            <span></span>
@@ -73,7 +73,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="swipe-menu">
+	<div class="swipe-menu js-dbx">
 		<div class="switchers-box">
 			<div class="switchers hidden-lg">
 				<form action="/" method="post" class="switchers-item"> 
@@ -122,7 +122,7 @@
 				    </div>
 				</form>
 			</div>
-			<div class="btn-close">
+			<div class="btn-close js-classSwitch" data-dbx-name=".swipe-menu">
 				<div class="line top"></div>
 				<div class="line bottom"></div>
 			</div>

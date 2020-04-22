@@ -91,6 +91,7 @@ $e_btns: (
             border-radius: 50%;
             width: 40px;
             height: 40px;
+            cursor: pointer;
             &-inner{
                 position: absolute;
                 top: 0;
@@ -119,6 +120,7 @@ $e_btns: (
             width: 22px;
             height: 22px;
             transform: rotate(45deg);
+            cursor: pointer;
             .line{
                 background-color: #fff;
                 border-radius: 1px;

@@ -4,8 +4,8 @@
     $clss_dosoption_list = implode("  ", $clss_dosoption);
 ?>
 
-<a href="#"
+<span
     class="<?= $clss_dosoption_list ?>"
 >
     <? render('block_dosage-col', _var('data_row')) ?>
-</a>
+</span>

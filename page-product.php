@@ -7,6 +7,7 @@
                 'dosage_head' => '<span>Dosage, mg</span>',
                 'isActive' => true,
                 'isWithVal' => false,
+                'isDosage' => true,
                 'data_dosage_list' => [
                     [
                         'data_row' => [

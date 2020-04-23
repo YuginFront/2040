@@ -1,6 +1,8 @@
 <?
     $clss = array("block-dosage");
+    ( _var('isDosage') ) ? array_push($clss, "block-dosage--dosage") : array_push($clss, "block-dosage--package");
     ( _var('isActive') ) ? array_push($clss, "block-dosage--active") : $clss;
+    
     $clss_list = implode("  ", $clss);
 
     $clss_left = array("block-dosage__left");

@@ -44,6 +44,7 @@ $e_btns: (
             @extend %btn;
             color: _color(black);
             border: 1px solid _color(stroke);
+            background-color: transparent;
         }
         
         .btn,

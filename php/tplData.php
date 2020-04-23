@@ -410,6 +410,93 @@ $_VARS['list-primary-item'] = [
     ],
 
 ];
+
+$_VARS['list-product'] = [
+    [
+        'data_list-product-item' => [
+
+            [
+              'grid-class' => 'col-sm col-sm-6 col-lg-4',
+              'img-url'=>'img/pills/viagra.png',
+              'alt_img'=>'Viagra',
+              'href_btn-buy'=>'#',
+              'product-name'=>'Viagra Professional',
+              'info'=>'Generic Viagra — is the first and the most well-known remedy for male erection. Its active ingredient is called Sildenafil.',
+              'price'=>'$2.23',
+            ],
+
+            [
+              'grid-class' => 'col-sm col-sm-6 col-lg-4',
+              'img-url'=>'img/pills/cialis.png',
+              'alt_img'=>'Viagra',
+              'href_btn-buy'=>'#',
+              'product-name'=>'Viagra Professional',
+              'info'=>'Generic Viagra — is the first and the most well-known remedy for male erection. Its active ingredient is called Sildenafil.',
+              'price'=>'$2.23',
+            ],
+
+            [
+              'grid-class' => 'col-sm col-sm-6 col-lg-4',
+              'img-url'=>'img/pills/levitra.png',
+              'alt_img'=>'Viagra',
+              'href_btn-buy'=>'#',
+              'product-name'=>'Viagra Professional',
+              'info'=>'Generic Viagra — is the first and the most well-known remedy for male erection. Its active ingredient is called Sildenafil.',
+              'price'=>'$2.23',
+            ],
+
+            [
+              'grid-class' => 'col-sm col-sm-6 col-lg-4',
+              'img-url'=>'img/pills/zit.png',
+              'alt_img'=>'Viagra',
+              'href_btn-buy'=>'#',
+              'product-name'=>'Viagra Professional',
+              'info'=>'Generic Viagra — is the first and the most well-known remedy for male erection. Its active ingredient is called Sildenafil.',
+              'price'=>'$2.23',
+            ],
+
+            [
+              'grid-class' => 'col-sm col-sm-6 col-lg-4',
+              'img-url'=>'img/pills/zit.png',
+              'alt_img'=>'Viagra',
+              'href_btn-buy'=>'#',
+              'product-name'=>'Viagra Professional',
+              'info'=>'Generic Viagra — is the first and the most well-known remedy for male erection. Its active ingredient is called Sildenafil.',
+              'price'=>'$2.23',
+            ],
+
+            [
+              'grid-class' => 'col-sm col-sm-6 col-lg-4',
+              'img-url'=>'img/pills/zit-2.png',
+              'alt_img'=>'Viagra',
+              'href_btn-buy'=>'#',
+              'product-name'=>'Viagra Professional',
+              'info'=>'Generic Viagra — is the first and the most well-known remedy for male erection. Its active ingredient is called Sildenafil.',
+              'price'=>'$2.23',
+            ],
+            
+        ],
+    ],
+];
+
+$_VARS['list-product-item'] = [
+
+    [
+      'grid-class' => 'col col-6 col-md-4 col-lg-3',
+      'img-url'=>'img/pills/viagra.png',
+      'alt_img'=>'Viagra',
+      'href_btn-buy'=>'#',
+      'product-name'=>'Viagra',
+      'info'=>'Generic Viagra — is the first and the most well-known remedy for male erection. Its active ingredient is called',
+      'price'=>'&#8364; 0.81',
+
+    ],
+    
+];
+
+
+
+
 // LAYOUTS
 
 $_VARS['layout_base'] = [
@@ -449,6 +536,17 @@ $_VARS['page-product'] = [
     ],
 ];
 
+$_VARS['page-contact'] = [
+    'layout'=>['layout_second'],
+    [
+        'layout_second'=>[
+            [
+                'page-class'=>'layout_second',
+            ],
+        ],
+
+    ],
+];
 
 
 

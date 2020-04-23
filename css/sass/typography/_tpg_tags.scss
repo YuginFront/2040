@@ -77,6 +77,9 @@ $e_tpg_tags: (
             line-height: _tpg_tags(lh);
             color: _tpg_tags(c);
             background-color: _tpg_tags(bgc);
+
+            min-width: 360px;
+            overflow: auto;
         }
 
         h1,h2,h3,h4,h5,h6,
@@ -148,7 +151,8 @@ $e_tpg_tags: (
         .page-title{
             font-size: 1.75em;
             line-height: 1.14285em;
-            margin-bottom: 0.4285em; // 12px
+            margin-top: 0;
+            margin-bottom: 0.3em; // 12px
         }
 
 
@@ -205,6 +209,7 @@ $e_tpg_tags: (
         .page-title{
             font-size: 3em;
             line-height: 1.08333em;
+            margin-bottom: 0.4285em; 
         }
 
      }

@@ -1,0 +1,85 @@
+@mixin page-index(){
+    @if $__use-css-comments{
+        /** btns #{$__viewport} */
+    }
+    @if $__viewport == xs{
+
+    	.controls-btns{
+    		display: flex;
+    		flex-direction: row;
+    		justify-content: flex-start;
+    		align-items: center;
+
+    		padding-top: 5px;
+
+    		.btn-inv{
+    			letter-spacing: -0.85px;
+    			font-size: 16px;	
+    			padding: 5px 8px;
+    			margin-right: 8px;
+    		}
+    	}
+
+    	.controls-title{
+    		line-height: 1.25em;
+    	}
+
+    	.active-substance{
+    		display: inline-block;
+    	}
+
+		.market-name{
+			font-size: 12px;
+			color:_color(greyText);
+			line-height: 1.1666em;
+		}        
+
+    }
+
+    @if $__viewport == lg{
+
+    	.panel-choose{
+    		// padding-top: 17px;
+    		display: flex;
+			flex-wrap: nowrap;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+
+			.page-title{
+				flex: 0 0 56%;
+				padding-top: 17px;
+			}
+    	}
+		
+		.panel-controls{
+			flex: 0 0 44%;
+			display: flex;
+			flex-wrap: nowrap;
+			flex-direction: row;
+			justify-content:flex-end;
+			align-items: center;
+			
+		}
+
+		.controls-title{
+			// flex: 0 0 130px;
+		}
+
+		.controls-btns{
+			padding-top: 0;
+			flex: 0 0 427px;
+			max-width: 427px;
+			.btn-inv{
+				padding: 8px 16px 7px;
+				line-height: 1.3em;
+				margin-right: 0;
+				margin-left: 15px;
+			}
+		}
+
+		.market-name{
+			line-height: 1.333em;
+		}
+    }
+}

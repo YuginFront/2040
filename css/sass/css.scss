@@ -54,7 +54,7 @@
 
     @include _category(lists) {
         @include pl-lists;
-        // @include _list-product;
+        @include _list-product;
     }
 
     @include _category(blocks) {
@@ -73,6 +73,8 @@
 
     @include _category(other) {
         @include pl-other;
+        @include page-index;
+
     }
 
 

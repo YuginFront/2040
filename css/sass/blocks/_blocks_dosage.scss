@@ -7,10 +7,28 @@
             background-color: rgba(239, 240, 240, .5);
             padding: 20px 15px 15px 15px;
             margin-bottom: 15px;
+            filter: blur(4px);
+            position: relative;
+
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                // background-color: #f00;
+            }
 
             &--active {
                 margin-left: -15px;
                 margin-right: -15px;
+                filter: blur(0);
+
+                &:after {
+                    display: none;
+                }
             }
 
             &__body {
@@ -34,6 +52,7 @@
                 flex-direction: column;
                 justify-content: space-between;
                 padding-right: 22px;
+                width: 100%;
 
                 &:after {
                     content: '';
@@ -87,6 +106,14 @@
                 padding-bottom: 5px;
                 text-align: left;
                 border-bottom: 1px solid #DCDEE2;
+                display: flex;
+                justify-content: space-between;
+
+                &:after {
+                    content: ' ';
+                    display: block;
+                    width: 30%;
+                }
             }
 
             &__right-body {
@@ -100,6 +127,8 @@
                 display: block;
                 margin-bottom: 3px;
                 position: relative;
+                display: flex;
+                flex-wrap: wrap;
 
                 &:hover,
                 &--active {
@@ -123,14 +152,22 @@
                     font-weight: normal;
                 }
 
-                span:nth-child(3) {
-                    white-space: nowrap;
+                span{
+                    min-width: 33%;
+
+                    &:nth-child(3) {
+                        white-space: nowrap;
+                    }
+                }
+
+                .icon + .icon {
+                    margin-left: 5px;
                 }
             }
 
             &__footer {
-                padding-top: 5px;
-
+                padding-top: 20px;
+                text-align: center;
 
                 a {
                     font-size: 13px;
@@ -163,7 +200,20 @@
             // width: 30px;
         }
         @if $__viewport == lg{
-            // width: 40px;
+            &--active {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            &__left {
+                font-size: 16px;
+            }
+
+            &__limit {
+                span {
+                    font-size: 20px;
+                }
+            }
         }
         @if $__viewport == xl{
             // width: 50px;

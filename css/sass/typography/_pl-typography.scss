@@ -15,7 +15,7 @@
                 margin-bottom: 24px;
                 
                 &--package {
-                    // display: none;
+                    display: none;
                 }
             }
             &__fulldesc {
@@ -30,7 +30,19 @@
 
     }
     @if $v == lg {
+        .product {
+            &__title {
+                font-size: 48px;
+            }
 
+            &__toggle-desc {
+                display: none;
+            }
+
+            &__fulldesc {
+                display: inline;
+            }
+        }
     }
     @if $v == xl {
 

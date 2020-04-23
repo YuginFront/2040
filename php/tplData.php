@@ -491,7 +491,7 @@ $_VARS['list-product-item'] = [
       'price'=>'&#8364; 0.81',
 
     ],
-    
+
 ];
 
 
@@ -544,6 +544,8 @@ $_VARS['page-contact'] = [
                 'page-class'=>'layout_second',
             ],
         ],
+
+        'col-left' => 'list-product',
 
     ],
 ];

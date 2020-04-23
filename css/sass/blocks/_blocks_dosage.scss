@@ -1,0 +1,240 @@
+@mixin blocks_dosage(){
+    @if $__use-css-comments{
+        /** blocks_dosage #{$__viewport} */
+    }
+    .block-dosage{
+        @if $__viewport == xs{
+            background-color: rgba(239, 240, 240, .5);
+            padding: 20px 15px 15px 15px;
+            margin-bottom: 15px;
+            filter: blur(4px);
+            position: relative;
+
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                // background-color: #f00;
+            }
+
+            &--active {
+                margin-left: -15px;
+                margin-right: -15px;
+                filter: blur(0);
+
+                &:after {
+                    display: none;
+                }
+            }
+
+            &__body {
+                display: flex;
+            }
+
+            &__left {
+                width: 33%;
+                font-size: 13px;
+                line-height: 18px;
+                display: flex;
+
+                &--without-val {
+                    padding-top: 30px;
+                }
+            }
+
+            &__left-body {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding-right: 22px;
+                width: 100%;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    height: 100%;
+                    width: 16px;
+                    border-radius: 8px;
+                    background: #2af918;
+                    background: -moz-linear-gradient(top,  #2af918 0%, #ffdf38 50%, #fa1a6b 100%);
+                    background: -webkit-linear-gradient(top,  #2af918 0%,#ffdf38 50%,#fa1a6b 100%);
+                    background: linear-gradient(to bottom,  #2af918 0%,#ffdf38 50%,#fa1a6b 100%);
+                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2af918', endColorstr='#fa1a6b',GradientType=0 );
+                }
+            }
+
+            &__limit {
+                text-align: right;
+                color: #7F8694;
+
+                span {
+                    display: block;
+                    font-weight: bold;
+                }
+
+                &--high {
+                    span {
+                        color: #28C75D;
+                    }
+                }
+
+                &--low {
+                    span {
+                        color: #FF003D;
+                    }
+                }
+            }
+
+            &__right {
+                flex-grow: 1;
+                padding-left: 12px;
+            }
+
+            &__right-head {
+                color: #7F8694;
+                font-size: 13px;
+                line-height: 18px;
+                font-weight: normal;
+                font-family: _font('ff', 'base');
+                padding-bottom: 5px;
+                text-align: left;
+                border-bottom: 1px solid #DCDEE2;
+                display: flex;
+                justify-content: space-between;
+
+                &:after {
+                    content: ' ';
+                    display: block;
+                    width: 30%;
+                }
+            }
+
+            &__right-body {
+                padding-top: 3px;
+            }
+
+            &__right-option {
+                color: #2B2B2B;
+                font-weight: bold;
+                padding: 6px 22px 6px 12px;
+                display: block;
+                margin-bottom: 3px;
+                position: relative;
+                display: flex;
+                flex-wrap: wrap;
+
+                &:hover,
+                &--active {
+                    background-color: #fff;
+                    box-shadow: 0px 0.30914px 2.74791px rgba(15, 17, 28, 0.0217013), 0px 0.781839px 6.94968px rgba(15, 17, 28, 0.0310596), 0px 1.59488px 14.1767px rgba(15, 17, 28, 0.0389404), 0px 3.28515px 29.2013px rgba(15, 17, 28, 0.0482987), 0px 9px 80px rgba(15, 17, 28, 0.07);
+                    border-radius: 8px;
+
+                    &:after {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        right: 9px;
+                        background-image: url("../img/#{$spritesheet-image}") !important;
+                        @include sprite($icon-arr-right);
+                    }
+                }
+
+                .light {
+                    font-weight: normal;
+                }
+
+                span{
+                    min-width: 33%;
+
+                    &:nth-child(3) {
+                        white-space: nowrap;
+                    }
+                }
+
+                .icon + .icon {
+                    margin-left: 5px;
+                }
+            }
+
+            &__footer {
+                padding-top: 20px;
+                text-align: center;
+
+                a {
+                    font-size: 13px;
+                    line-height: 18px;
+                    margin-right: 10px;
+                    font-weight: bold;
+
+                    &:before {
+                        margin-right: 4px;
+                    }
+
+                    &:nth-child(1) {
+                        color: #FDAC10;
+                    }
+
+                    &:nth-child(2) {
+                        color: #28C75D;
+                    }
+
+                    &:nth-child(3) {
+                        color: #FF003D;
+                    }
+                }
+            }
+        }
+        @if $__viewport == sm{
+            // width: 20px;
+        }
+        @if $__viewport == md{
+            // width: 30px;
+        }
+        @if $__viewport == lg{
+            &--active {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            &__left {
+                font-size: 16px;
+            }
+
+            &__limit {
+                span {
+                    font-size: 20px;
+                }
+            }
+        }
+        @if $__viewport == xl{
+            // width: 50px;
+        }
+        @if $__viewport == dev{
+            // width: 60px;
+        }
+        @if $__viewport == mob{
+            // width: 70px;
+        }
+        @if $__viewport == xso{
+            // width: 80px;
+        }
+        @if $__viewport == smo{
+            // width: 90px;
+        }
+        @if $__viewport == mdo{
+            // width: 100px;
+        }
+        @if $__viewport == lgo{
+            // width: 110px;
+        }
+    }
+}

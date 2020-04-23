@@ -5,7 +5,23 @@
         $v: $__viewport;
     }
     @if $v == xs {
-
+        .product {
+            &__title {
+                font-size: 28px;
+                line-height: 32px;
+                margin-bottom: 12px;
+            }
+            &__header {
+                margin-bottom: 24px;
+                
+                &--package {
+                    display: none;
+                }
+            }
+            &__fulldesc {
+                display: none;
+            }
+        }
     }
     @if $v == sm {
 
@@ -14,7 +30,19 @@
 
     }
     @if $v == lg {
+        .product {
+            &__title {
+                font-size: 48px;
+            }
 
+            &__toggle-desc {
+                display: none;
+            }
+
+            &__fulldesc {
+                display: inline;
+            }
+        }
     }
     @if $v == xl {
 

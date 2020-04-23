@@ -122,6 +122,19 @@ setViewport();
 deviceType();
 
 
+function ProductBlock(el) {
+    this.el = el;
+    this.selectDos = el.querySelector('.block-dosage--dosage .block-dosage__right-body');
+    console.log(this.selectDos);
+
+    this.selectDos.addEventListener('click', this.ProductBlock);
+}
+ProductBlock.prototype.getPackage = function(e) {
+    e.preventDefault();
+    alert('ddd');
+}
+
+
 window.addEventListener('DOMContentLoaded',function(){
 
     /**
@@ -155,6 +168,12 @@ window.addEventListener('DOMContentLoaded',function(){
         });
     })();
 
+
+    (function() {
+        const listProductBlocks = document.querySelectorAll('.product');
+        if (listProductBlocks.length === 0) return;
+        const productBlock = new ProductBlock(listProductBlocks[0]);
+    })();
 
 
     function setSexyValue(select) {

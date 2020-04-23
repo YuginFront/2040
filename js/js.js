@@ -125,13 +125,30 @@ deviceType();
 function ProductBlock(el) {
     this.el = el;
     this.selectDos = el.querySelector('.block-dosage--dosage .block-dosage__right-body');
-    console.log(this.selectDos);
+    this.clss = ['product'];
+    this.blockPack = this.el.querySelectorAll('.block-dosage--package');
 
-    this.selectDos.addEventListener('click', this.ProductBlock);
+    this.getPackage = this.getPackage.bind(this);
+
+    this.selectDos.addEventListener('click', this.getPackage);
 }
 ProductBlock.prototype.getPackage = function(e) {
     e.preventDefault();
-    alert('ddd');
+    []
+        .slice
+        .apply(this.el.querySelectorAll('.block-dosage__right-option--active'))
+        .forEach(function(item) {
+            item.classList.remove('block-dosage__right-option--active');
+        });
+
+    e.target.closest('.block-dosage__right-option').classList.add('block-dosage__right-option--active');
+    (this.clss.indexOf('product--stage-package') === -1) && this.clss.push('product--stage-package');    
+    this.el.setAttribute('class', this.clss.join("  "));
+
+    if (this.blockPack.length > 0) {
+        this.blockPack[0].classList.contains('block-dosage--active') || this.blockPack[0].classList.add('block-dosage--active');
+        // console.log(this.blockPack[0]);
+    }
 }
 
 

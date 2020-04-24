@@ -122,15 +122,30 @@ setViewport();
 deviceType();
 
 
-function ProductBlock(el) {
+function ProductBlock(el, ctrlBlock) {
     this.el = el;
+    this.ctrlBlock = ctrlBlock;
+    this.blockPack = el.querySelectorAll('.block-dosage--package');
+    if (this.blockPack.length === 0) return;
+    
     this.selectDos = el.querySelector('.block-dosage--dosage .block-dosage__right-body');
     this.clss = ['product'];
-    this.blockPack = this.el.querySelectorAll('.block-dosage--package');
+
+    this.linksFullDesc = [].slice.apply(el.querySelectorAll('.product__toggle-desc'));
 
     this.getPackage = this.getPackage.bind(this);
+    this.navCheckout = this.navCheckout.bind(this);
 
     this.selectDos.addEventListener('click', this.getPackage);
+    this.ctrlBlock.addEventListener('click', this.navCheckout);
+
+    this.linksFullDesc.forEach(function(item) {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            this.previousElementSibling.style.display = "inline-block";
+            this.style.display = "none";
+        });
+    });
 }
 ProductBlock.prototype.getPackage = function(e) {
     e.preventDefault();
@@ -145,9 +160,49 @@ ProductBlock.prototype.getPackage = function(e) {
     (this.clss.indexOf('product--stage-package') === -1) && this.clss.push('product--stage-package');    
     this.el.setAttribute('class', this.clss.join("  "));
 
-    if (this.blockPack.length > 0) {
-        this.blockPack[0].classList.contains('block-dosage--active') || this.blockPack[0].classList.add('block-dosage--active');
-        // console.log(this.blockPack[0]);
+    this.blockPack[0].classList.contains('block-dosage--active') || this.blockPack[0].classList.add('block-dosage--active');
+    
+    const btn1 = this.ctrlBlock.querySelector('.btn-inv[data-level="1"]');
+    const btn2 = this.ctrlBlock.querySelector('.btn-inv[data-level="2"]');
+
+    btn1.classList.contains('active') && btn1.classList.remove('active')
+    btn1.classList.add('passed');
+    btn2.classList.add('active');
+};
+ProductBlock.prototype.navCheckout = function(e) {
+    const curBtn = e.target.closest('.btn-inv.passed');
+
+    if (!curBtn) return;
+    switch(curBtn.getAttribute('data-level')) {
+        case "1":
+            if (this.el.classList.contains('product--stage-package')) {
+                this.clss = this.clss.filter(function(item) {
+                    return item !== 'product--stage-package';
+                });
+                this.el.setAttribute('class', this.clss.join("  "));
+                []
+                    .slice
+                    .apply(this.el.querySelectorAll('.block-dosage--package'))
+                    .forEach(function(item) {
+                        item.classList.remove('block-dosage--active');
+                    });
+
+                let flagLevel = 0;
+                []
+                    .slice
+                    .apply(this.ctrlBlock.querySelectorAll('.btn-inv'))
+                    .forEach(function(item, idx) {
+                        (curBtn == item || flagLevel > 0) && ++flagLevel;
+                        if (flagLevel == 1) {
+                            item.classList.remove('passed');
+                            item.classList.add('active');
+                        }
+                        if (flagLevel > 1) {
+                            item.classList.remove('passed');
+                            item.classList.remove('active');
+                        }
+                    });
+            }
     }
 }
 
@@ -188,8 +243,9 @@ window.addEventListener('DOMContentLoaded',function(){
 
     (function() {
         const listProductBlocks = document.querySelectorAll('.product');
+        const ctrlBlock = document.querySelector('.control-order');
         if (listProductBlocks.length === 0) return;
-        const productBlock = new ProductBlock(listProductBlocks[0]);
+        new ProductBlock(listProductBlocks[0], ctrlBlock);
     })();
 
 

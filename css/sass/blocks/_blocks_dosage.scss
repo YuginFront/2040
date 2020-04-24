@@ -4,7 +4,8 @@
     }
     .block-dosage{
         @if $__viewport == xs{
-            background-color: rgba(239, 240, 240, .5);
+            // background-color: rgba(239, 240, 240, .5);
+            background-color: #F7F7F8;
             padding: 20px 15px 15px 15px;
             margin-bottom: 15px;
             filter: blur(4px);
@@ -27,14 +28,6 @@
 
                 &:after {
                     display: none;
-                }
-            }
-
-            &--dosage {
-                transition: all ease .3s;
-
-                .product--stage-package & {
-                    margin-top: -100%;
                 }
             }
 
@@ -210,6 +203,14 @@
             &--active {
                 margin-left: 0;
                 margin-right: 0;
+            }
+
+            &--dosage {
+                transition: all ease .3s;
+
+                .product--stage-package & {
+                    margin-top: -100%;
+                }
             }
 
             &__left {

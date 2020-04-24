@@ -1,22 +1,10 @@
 
-// @include forms-xs();
-// @include forms-sm();
-// @include forms-md();
-// @include forms-lg();
-// @include forms-xl();
-// @include forms-dev();
-// @include forms-mob();
-// @include forms-xso();
-// @include forms-smo();
-// @include forms-mdo();
-// @include forms-lgo();
-
 $e_forms: (
         // fz: _font(fz, base),
         // bgc_button: _bgc(button),
         bgc_input: _bgc(input),
         // p_input: 5px 10px,
-        bd_input: 1px solid _color(border),
+        bd_input: 1px solid _color(stroke),
         // c: _color(text),
 );
 
@@ -41,16 +29,25 @@ $e_forms: (
         input[type="datetime"],
         input[type="datetime-local"],
         input[type="color"],
-        select,
         textarea {
             // color: _forms(c);
-            // border: _forms(bd_input);
             // padding: _forms(p_input);
             background-color: _forms(bgc_input);
+            border: _forms(bd_input);
+            height: 40px;
+            border-radius: 4px;
+            width: 265px;
+            &:focus{
+                box-shadow: 0px 4px 12px rgba(0, 68, 233, 0.2);
+                border-color: _color(brandColor);
+            }
         }
 
-        input[type="text"]{
-            height: 40px;
+        label{
+            display: block;
+            color: _color(greyText);
+            font-size: 16px;
+            line-height: 1.5em;
         }
 
         button,
@@ -59,10 +56,6 @@ $e_forms: (
             // border: _forms(bd_input);
         }
 
-        legend {
-            // font-size: _forms(fz);
-            // color: _forms(c);
-        }
         fieldset {
             // border: _forms(bd_input);
         }

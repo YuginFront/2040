@@ -541,11 +541,9 @@ $_VARS['page-contact'] = [
     [
         'layout_second'=>[
             [
-                'page-class'=>'layout_second',
+                'page-class'=>'layout_second page-contact',
             ],
         ],
-
-        'col-left' => 'list-product',
 
     ],
 ];

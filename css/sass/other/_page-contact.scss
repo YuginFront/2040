@@ -1,0 +1,186 @@
+@mixin page-contact(){
+    
+    @if $__use-css-comments{
+        /** btns #{$__viewport} */
+    }
+
+    @if $__viewport == xs{
+
+    	.page-contacts{
+    		.main{
+    			padding-bottom: 57px;
+    		}
+    	}
+
+    	.form-contact{
+    		textarea{
+    			resize: none;
+
+    			width: 328px;
+    			height: 80px;
+    		}
+
+    		button[type='submit']{
+    			width: 328px;
+    		}
+    		
+    		label{
+    			margin-bottom: 2px;
+    		}
+    	}
+		
+		.form-row{
+			margin-bottom: 12px;
+		}
+
+		#contact_captcha{
+			width: 105px;
+		}
+
+		.note{
+			color: _color(red);
+			font-weight: _font(fw,bold);
+		}
+
+		.captcha{
+			& , & img, & a{
+				display: inline-block;
+			    vertical-align: middle;	
+			}
+
+			img{
+				margin-left: 4px;
+			}
+
+			a{
+				margin-left: 18px;
+				vertical-align: top;
+			}
+		}
+    	
+
+    	.contact-box{
+    		margin-bottom: 10px;
+    		p{
+    			margin-bottom: 7px;
+    		}
+    	}
+
+    	.email-box{
+    		p{
+    			margin-bottom: 3px;
+    		}
+
+    		.email-lg{
+				font-family: _font(ff,second);
+				font-weight: _font(fw,bold);
+				font-size: 22px;
+				line-height: 1.0909em;
+				color: _color(brandColor);
+				letter-spacing: -1px;
+				margin-bottom: 15px;
+			}
+    	}
+
+
+    }
+
+    @if $__viewport == dev{
+	
+		.page-contact{
+			
+			.page-title{
+				margin-bottom: 0.6em;
+			}
+
+			.main > .container{
+				display: flex;
+				flex-direction: column;
+			}
+
+			.col-right{
+				order: 1;
+			}
+
+			.col-left{
+				order: 2;
+				padding-top: 20px;
+			}
+
+			input[type="text"]{
+				width: 328px;
+			}
+		}
+
+    }
+
+    @if $__viewport == lg{
+		
+		.page-contact{
+
+			.col-right,
+			.col-left{
+				float: left;
+				width: 50%;
+			}
+
+			.col-left{
+				padding-right: 12px;
+			}
+
+			.col-right{
+				padding-left: 9.5%;
+			}
+		}
+
+		.form-contact{
+			padding-top: 20px;
+			label{
+				margin-bottom: 8px;
+			}
+
+			.form-row{
+				margin-bottom: 16px;
+				&:last-child{
+					text-align: right;
+					.btn{
+						width: auto;
+						padding-top: 11px;
+					}
+				}
+			}
+
+			textarea{
+				width: 100%;
+			}
+		}
+		
+		#contact_subject{
+			width: 100%;
+		}
+
+		#contact_captcha{
+			width: 170px;
+		}
+
+		.contact-box{
+			margin-bottom: 12px;
+			p{
+				margin-bottom: 10px;
+			}
+		}
+
+		.email-box{
+    		p{
+    			margin-bottom: 20px;
+    		}
+
+    		.email-lg{
+				font-size: 32px;
+				line-height: 1.125em;
+				margin-bottom: 15px;
+			}
+    	}
+    	
+    }
+}

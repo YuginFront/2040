@@ -13,16 +13,6 @@
             }
             &__header {
                 margin-bottom: 24px;
-
-                &--dosage {
-                    transition: all ease .3s;
-
-                    .product--stage-package & {
-                        overflow: hidden;
-                        height: 0;
-                        margin-bottom: 0;
-                    }
-                }
                 
                 &--package {
                     display: none;
@@ -30,11 +20,6 @@
                     .product--stage-package & {
                         display: block;
                     }
-                }
-            }
-            &__body {
-                .product--stage-package & {
-                    overflow: hidden;
                 }
             }
             &__fulldesc {
@@ -53,13 +38,31 @@
             &__title {
                 font-size: 48px;
             }
-
             &__toggle-desc {
                 display: none;
             }
-
             &__fulldesc {
                 display: inline;
+            }
+            &__header {
+                background-color: #fff;
+
+                &--dosage {
+                    transition: all ease .3s;
+
+                    .product--stage-package & {
+                        overflow: hidden;
+                        height: 0;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+            &__body {
+                background-color: #fff;
+
+                .product--stage-package & {
+                    overflow: hidden;
+                }
             }
         }
     }

@@ -33,9 +33,7 @@
     </div>
     <? if (_var('hasBonuses')): ?>
         <div class="block-dosage__footer">
-            <a href="#" class="icon icon-pack-pop">Popular</a>
-            <a href="#" class="icon icon-pack-shipping">Free shipping</a>
-            <a href="#" class="icon icon-pack-bonus">Bonus</a>
+            <? render('block_profits') ?>
         </div>
     <? endif; ?>
 </div>

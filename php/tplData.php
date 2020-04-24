@@ -626,4 +626,15 @@ $_VARS['page-account'] = [
 ];
 
 
+$_VARS['page-shopping'] = [
+    'layout'=>['layout_base'],
+    [
+        'layout_base'=>[
+            [
+                'page-class'=>'page-shopping',
+            ],
+        ],
+    ],
+];
+
 

@@ -548,6 +548,46 @@ $_VARS['page-contact'] = [
     ],
 ];
 
+$_VARS['page-about'] = [
+     'layout'=>['layout_second'],
+    [
+
+      'page-content' => '
+        <h3>12 years in business!</h3>
+  
+        <p>This website, which has been in business for 12 years, is one of the leading pharmacies on the Internet. Our goal has been to deliver safe, generic medications at a good price!
+          Our website provides quality generic medicines shipped directly from India. Each of the products that are available through our website are produced with the best raw materials and the greatest care at world-class pharmaceutical manufacturing plants in India. Each of these plants are Indian FDA approved and are internationally certified, so you know our products are safe.
+        </p>
+        <h3>Safety</h3>
+  
+        <p>We take your safety seriously. All the products we distribute comply with the Drugs and Cosmetics Act of India 1940, as well as any other applicable rules or amendments. We are sure that any of these products will meet your high standards, now and in the future. We 100% guarantee it! You can find more information about generic medications here.
+          Dosage information, along with any other relevant or important general information on the medications we provide can be found at this website. Be sure to read this information before placing your order. If you are not 100% sure that you should be taking a specific medication, consult a physician. If you have any other questions, concerns, or just want to learn a little more about us and the services we provide, please contact our customer support team. They are available 24 hours per day, 7 days per week, through email, online chat or by phone.
+        </p>
+        <h3>Privacy</h3>
+  
+        <p>Privacy is very important to us. Your email address and personal information will not be abused. Spam is illegal, and we do not take part in those activities. If you do receive any spam related to our products or services, please contact our customer support department and the situation will be dealt with accordingly.
+        </p>
+        <h3>Responsibility</h3>
+  
+        <p>Everything we do at this website is 100% legal. We are responsible corporate citizens and operate in accordance with all applicable laws. It\'s absolutely secure to place orders with us as our secure billing system makes sure that all your information is kept private and safe. There is no need to worry when you order from us.
+          If there is a problem with your order (which there rarely is), like being stopped at customs or get lost by the shipping company, contact us immediately. We will work out a plan to either reship your order or refund your money. Our main concern is your satisfaction!
+        </p>
+        <h3></h3>
+  
+  
+  
+        <h3>Contact</h3>
+  
+        <p>
+          <img src="imgs/contact-phone.gif"><br>
+          <img src="imgs/contact-toll_free.gif"><br>
+          <img src="imgs/contact-phone-uk.gif"><br>
+          Or submit <a href="contact.php" rel="nofollow">contact form</a>.
+        </p>
+      ',
+    ],
+  ];
+
 
 
 

@@ -1,0 +1,204 @@
+@mixin page-product(){
+    
+    @if $__use-css-comments{
+        /** btns #{$__viewport} */
+    }
+
+    @if $__viewport == xs{
+	
+		.product-desc{
+			
+			border: 1px solid _color(stroke);
+			border-radius: 12px;
+		}
+
+		.desc-short{
+			padding-top: 20px;
+			padding-right: 11px;
+			padding-bottom: 11px;
+			padding-left: 16px;
+
+			h4{
+				letter-spacing: -0.5px;
+			}
+		}
+
+		.desc-header{
+			.h3{
+				margin-top: 0;
+			}
+		}
+
+	    .product-spec{
+			h4{
+				margin-top: 0;
+			}
+		}
+
+		.desc-list{
+			@extend %no-list;
+			margin-bottom: 10px;
+			// font-size: 0;
+
+			&:last-of-type{
+				margin-bottom: 0;
+			}
+		}
+
+		.desc-item{
+			display: inline-block;
+			vertical-align: middle;	
+			position: relative;
+
+			padding-right: 12px;
+
+
+				&:before{
+					content: '';
+					width: 4px;
+					height: 4px;
+					position: absolute;
+					top: 11px;
+					right: 3px;
+					border-radius: 50%;
+					background-color: _color(greyText);
+				}
+
+				&:last-child{
+					padding-right: 0;
+					&:before{
+						display: none;
+					}
+				}
+
+
+			
+
+			a{
+				margin-left: -2px;
+			}
+
+		}
+
+		.desc-full{
+			padding-top: 12px;
+			padding-right: 11px;
+			padding-left: 16px;
+			padding-bottom: 12px;
+			border-top: 1px solid _color(stroke);
+		}
+		
+		.read-full{
+			color: _color(brandColor);
+			font-size: 16px;
+			line-height: 1.5em;
+			font-weight: _font(fw,bold);
+		}
+    	
+    }
+
+    @if $__viewport == dev{
+
+	    .desc-header{
+    		float: left;	
+    		max-width: 52%;
+    		padding-right: 10px;
+    		.h3{
+    			margin-top: -2px;
+    		}
+    	}
+
+    	.substance{
+    		margin-top: -4px;
+    	}
+
+    	.product-desc-img{
+			font-size: 0;
+			padding-top: 1px;
+    	}
+
+		.blister-img{
+			max-width: 50px;
+		}
+
+		.pill-img{
+			max-width: 78px;
+			margin-left: 14px;
+		}
+
+		// .desc-full{
+		// 	overflow: hidden;
+		//     text-overflow: ellipsis;
+		//     display: -webkit-box;
+		//     -webkit-line-clamp: 2;
+		//     -webkit-box-orient: vertical;
+		// }
+
+    }
+
+    @if $__viewport == lg{
+
+    	.product-desc{
+    		margin-right: 9px;
+    	}
+
+    	.product{
+    		padding-left: 11px;
+    	}
+		
+		.desc-short{
+			padding-top: 26px;
+			padding-right: 24px;
+			padding-bottom: 17px;
+			padding-left: 20px;
+
+			overflow: auto;
+			
+		}
+
+		.desc-header{
+			width: 50%;
+			float: right;
+			padding-left: 12px;
+
+
+		}
+
+
+		.product-desc-img{
+			float: left;
+			width: 50%;
+		}
+
+		.product-spec{
+			width: 47.7%;
+			float: right;
+			padding-top: 7px;
+		}
+
+		.blister-img{
+			
+		}
+
+		.pill-img{
+			margin-top: -5px;
+		}
+
+		.desc-list{
+			margin-bottom: 12px;
+		}
+
+		.desc-full{
+			padding-top: 16px;
+			padding-right: 34px;
+			padding-bottom: 22px;
+			padding-left: 32px;
+			margin-bottom: 0;
+		}
+
+		.read-full{
+			margin-left: 10px;
+		}
+    	
+    }
+}

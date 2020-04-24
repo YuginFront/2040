@@ -143,6 +143,55 @@
 
 <div class="col-lg col-lg-6">
 
+    <article class="product-desc">
+        <div class="desc-short">
+            <header class="desc-header">
+                <img src="img/pills/viagra.png" alt="" class="pill-img hidden-dev">
+                <h3 class="h3">Viagra Professional</h3>
+                <div class="substance">Sildenafil Citrate</div>
+            </header>
+            <div class="product-desc-img">
+                <img src="img/pills/blister.png" alt="" class="blister-img">
+                <img src="img/pills/viagra.png" alt="" class="pill-img hidden-lg">
+            </div>
+            <div class="product-spec">
+
+                <h4>Brands</h4>
+                <ul class="desc-list">
+                    <li class="desc-item">
+                        <a href="">Tazalis</a>
+                    </li>
+                    <li class="desc-item">
+                        <a href="">
+                            Cenforce
+                        </a>
+                    </li>
+                    <li class="desc-item">
+                        <a href="">
+                            Sildigra
+                        </a>
+                    </li>
+                </ul>
+                
+                <h4>Manufacturer</h4>
+                <ul class="desc-list">
+                    <li class="desc-item">Axon Pharma Pvt</li>
+                    <li class="desc-item">Dadha Pharma</li>
+                </ul>
+
+                <h4>Disease(s):</h4>
+                <ul class="desc-list">
+                    <li class="desc-item">Axon Pharma Pvt</li>
+                    <li class="desc-item">Dadha Pharma</li>
+                </ul>
+
+            </div>
+
+        </div>
+        <p class="desc-full">
+            Generic Viagra — is the first and the most well-known remedy for male erection. Its active ingredient is called Sildenafil. It provides enhanced blood flow to the male genital area. The cavernous body is relaxed <span class="read-full">Read full description</span>
+        </p>
+    </article>
 </div>
 
 <div class="col-lg col-lg-6">

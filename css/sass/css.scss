@@ -76,7 +76,7 @@
     @include _category(other) {
         @include pl-other;
         @include page-index;
-
+        @include page-product;
     }
 
 

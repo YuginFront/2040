@@ -549,8 +549,15 @@ $_VARS['page-contact'] = [
 ];
 
 $_VARS['page-about'] = [
-     'layout'=>['layout_second'],
+    'layout'=>['layout_second'],
+
     [
+
+        'layout_second'=>[
+            [
+                'page-class'=>'layout_second page-about',
+            ],
+        ],
 
       'page-content' => '
         <h3>12 years in business!</h3>
@@ -586,8 +593,37 @@ $_VARS['page-about'] = [
         </p>
       ',
     ],
-  ];
+];
 
+$_VARS['page-account'] = [
+
+    'layout'=>['layout_second'],
+
+    [
+
+        'layout_second'=>[
+            [
+                'page-class'=>'layout_second page-account',
+            ],
+        ],
+      
+      'data_page-account'=>'
+          <p>To get into your account area, please insert the order ID number of the first order placed with us and the e-mail address that was specified while ordering. Please, insert the digits from the box into the "Code on the image" field.</p>
+          <form method="post" action="/account.php">
+            <table>
+              <tfoot><tr><th>&nbsp;</th><th><input type="submit" value="Login"/> </th></tr></tfoot>
+              <tbody>
+              <tr><th>Order ID<sup>*</sup>:</th><td><input name="order_id"/></td></tr>
+              <tr><th>Your Email<sup>*</sup>:</th><td><input name="email"/></td></tr>
+              <tr class="vcode"><th>Enter the code shown<sup>*</sup>:</th><td><input name="vcode" size="8"/><img id="vcode_img" class="vcode" alt="verification code image" src="/imgs/rand.php"/> <a href="javascript:reloadImageCode()">reload image</a></td></tr>
+              </tbody>
+            </table>
+          </form>
+          <p>Please note! We have a special discount program for our customers, check it out <a rel="nofollow" href="/bonuses.php">here</a>.</p>
+          <div><h4 style="padding-top: 50px;"><a href="/coupon.php"></a></h4></div>
+              ',
+    ],
+];
 
 
 

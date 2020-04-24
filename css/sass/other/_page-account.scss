@@ -1,0 +1,25 @@
+@mixin page-account(){
+    
+    @if $__use-css-comments{
+        /** btns #{$__viewport} */
+    }
+
+    @if $__viewport == xs{
+	
+		.page-account{
+			
+		}
+
+    }
+
+    @if $__viewport == dev{
+	
+		
+    }
+
+    @if $__viewport == lg{
+		
+		
+    	
+    }
+}

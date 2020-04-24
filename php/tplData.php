@@ -590,4 +590,15 @@ $_VARS['page-about'] = [
 
 
 
+$_VARS['page-shopping'] = [
+    'layout'=>['layout_base'],
+    [
+        'layout_base'=>[
+            [
+                'page-class'=>'page-shopping',
+            ],
+        ],
+    ],
+];
+
 

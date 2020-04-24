@@ -146,6 +146,11 @@
                 ],
             ],
         ],
+        'data_checkout-control' => [
+            [
+                'cls' => 'active',
+            ],
+        ],
     ]);
 ?>
 

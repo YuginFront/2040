@@ -8,7 +8,8 @@
 //[ block s, form s, helper s, indentation s, links_and_button s, list s, othe r, table s, structur e, tag s, text s]
 "blocks/index",
 "blocks/blocks_dosage",
-"blocks/_blocks_checkout-control",
+"blocks/blocks_checkout-control",
+"blocks/blocks-profits",
 "buttons/index",
 "forms/index",
 "lists/index",
@@ -63,6 +64,7 @@
         @include pl-blocks;
         @include blocks_dosage;
         @include blocks_control-order;
+        @include blocks-profits;
     }
 
     @include _category(forms) {

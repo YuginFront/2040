@@ -13,9 +13,28 @@
             }
             &__header {
                 margin-bottom: 24px;
+
+                &--dosage {
+                    transition: all ease .3s;
+
+                    .product--stage-package & {
+                        overflow: hidden;
+                        height: 0;
+                        margin-bottom: 0;
+                    }
+                }
                 
                 &--package {
                     display: none;
+
+                    .product--stage-package & {
+                        display: block;
+                    }
+                }
+            }
+            &__body {
+                .product--stage-package & {
+                    overflow: hidden;
                 }
             }
             &__fulldesc {

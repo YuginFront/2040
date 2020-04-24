@@ -7,8 +7,10 @@
                 'dosage_head' => '<span>Dosage, mg</span>',
                 'isActive' => true,
                 'isWithVal' => false,
+                'isDosage' => true,
                 'data_dosage_list' => [
                     [
+                        'data_val' => '200',
                         'data_row' => [
                             [
                                 'val' => '200mg',
@@ -16,7 +18,8 @@
                         ],
                     ],
                     [
-                        'isActive' => true,
+                        'data_val' => '180',
+                        // 'isActive' => true,
                         'data_row' => [
                             [
                                 'val' => '180mg',
@@ -24,6 +27,7 @@
                         ],
                     ],
                     [
+                        'data_val' => '150',
                         'data_row' => [
                             [
                                 'val' => '150mg',
@@ -31,6 +35,7 @@
                         ],
                     ],
                     [
+                        'data_val' => '120',
                         'data_row' => [
                             [
                                 'val' => '120mg',
@@ -38,6 +43,7 @@
                         ],
                     ],
                     [
+                        'data_val' => '100',
                         'data_row' => [
                             [
                                 'val' => '100mg',
@@ -45,6 +51,7 @@
                         ],
                     ],
                     [
+                        'data_val' => '50',
                         'data_row' => [
                             [
                                 'val' => '50mg',
@@ -52,6 +59,7 @@
                         ],
                     ],
                     [
+                        'data_val' => '25',
                         'data_row' => [
                             [
                                 'val' => '25mg',

@@ -1,0 +1,54 @@
+@mixin blocks_control-order(){
+    @if $__use-css-comments{
+        /** _blocks_control-order #{$__viewport} */
+    }
+    .control-order{
+        @if $__viewport == xs{
+            position: fixed;
+            z-index: 500;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            background-color: #F9F9F9;
+            padding: 8px;
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 0 2px 2px rgba($color: #000000, $alpha: .1);
+            display: none;
+
+            .btn-inv {
+                padding: 7px 24px;
+            }
+        }
+        @if $__viewport == sm{
+            // width: 20px;
+        }
+        @if $__viewport == md{
+            // width: 30px;
+        }
+        @if $__viewport == lg{
+            display: block;
+        }
+        @if $__viewport == xl{
+            // width: 50px;
+        }
+        @if $__viewport == dev{
+            // width: 60px;
+        }
+        @if $__viewport == mob{
+            // width: 70px;
+        }
+        @if $__viewport == xso{
+            // width: 80px;
+        }
+        @if $__viewport == smo{
+            // width: 90px;
+        }
+        @if $__viewport == mdo{
+            // width: 100px;
+        }
+        @if $__viewport == lgo{
+            // width: 110px;
+        }
+    }
+}

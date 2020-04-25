@@ -68,6 +68,16 @@
 			}
 		}
 
+		.page-sitemap{
+			ul{
+				li{
+					&:first-of-type{
+						list-style-type: none;
+					}
+				}
+			}
+		}
+
     }
 
     @if $__viewport == dev{

@@ -636,7 +636,7 @@ $_VARS['page-shopping'] = [
     ],
 ];
 
-  $_VARS['page-faq'] = [
+$_VARS['page-faq'] = [
     'layout'=>['layout_second'],
 
     [
@@ -869,7 +869,57 @@ $_VARS['page-shopping'] = [
           <p>We will be glad to consider your proposal. Please send the details to our <a rel="nofollow" href="contact.php">e-mail address</a>. Please, be informed that the products you offer should comply with the quality requirements and should come with the quality certificates.</p>
               ',
     ],
-  ];
+];
 
+$_VARS['page-policies'] = [
+    
+    'layout'=>['layout_second'],
+
+    [
+
+       'layout_second'=>[
+            [
+                'page-class'=>'layout_second page-policies',
+            ],
+        ],
+
+      'data_page-policies'=>'
+          <ul>
+            <li><a href="#shipping">Shipping Policy</a></li>
+            <li><a href="#cancellation">Order Cancellation Policy</a></li>
+            <li><a href="#refund">Refund Policy</a></li>
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#disclaimer">Disclaimer</a></li>
+          </ul>
+          <h2 id="shipping">Shipping Policy</h2>
+          <p>The medicines we offer are manufactured and shipped from India. It is a long way thus the delivery takes time. Usually, the shipments are delivered within 10-17 days but in some cases there may be a delay for 5 more days.</p>
+          <p>In case of non-delivery after the dead-line, please contact us to inform of the matter. We will try our best to offer you the solution that will fully meet your interests. Click <a rel="nofollow" href="faq.php#shipping">here</a> to learn more about shipping.</p>
+          <h2 id="cancellation">Order Cancellation Policy</h2>
+          <p>Please, be informed that we accept order cancellations ONLY within 24 hours after order submitting. If you wish to cancel the order you have to contact our support team by phone or e-mail ( <a rel="nofollow" href="contact.php">Contact us</a> ) and let them know of your decision. In case you contact us after 24 hours, no order cancellation will be processed.</p>
+          <p>Make sure that you insert a valid shipping address in the order form, we recommend you to double check the notes before submitting the order. Any mistake may cause non-delivery of ordered products. If you have noticed that the address notes were specified incorrectly, contact us as soon as you can to inform of the matter ( <a rel="nofollow" href="contact.php">Contact us</a> ).</p>
+          <h2 id="refund">Refund Policy</h2>
+          <p>The medications we offer are generically equivalent to their brand-name counterparts. We guarantee that they are the same chemically and have the same medical effect.</p>
+          <p>In case you are not satisfied with the effect our medications produce, please <a rel="nofollow" href="contact.php">contact us</a> to inform of the problem. We will supply you with the return address and as soon as the product is received by our returns department, we will start the refund procedure.</p>
+          <p>Before contacting us, please, make sure that you take the right dosage of the products and follow the instructions for use. Mind that the effects can be slowed down by fatty food and alcohol you take prior to the tab.</p>
+          <p>In case of <strong>non-delivery of the product</strong> by the dead line (the delivery takes 10-17 days, there may be an additional delay for 5 days for the customs checking) you can contact our support team ( <a rel="nofollow" href="contact.php">Contact us</a> ) to qualify for a refund. Your payment will be fully reimbursed to your credit card. The refund procedure usually takes 5-7 business days, after this period the refund will be reflected at your credit card statement.</p>
+          <p>Due to the specific nature of products we offer we do not accept returns. No one can guarantee that the storage conditions are met during the order transportation thus we cannot accept them even if the package remains unopened.</p>
+          <h2 id="privacy">Privacy Policy</h2>
+          <p>We understand that the privacy of all information you provide is of a primary importance. This is why we do everything possible to use it carefully and sensibly. This information is never shared with other companies or third party service providers.</p>
+          <p>All transactions on our checkout page are 100% secure. We protect the security of your information by using 256 bit Secure Sockets Layer (SSL) software, which encrypts all information you input. In addition our billing servers are certified by independent and reputable agencies that ensure that we keep your information safe and private.</p>
+          <p>Only the last 4 digits of your credit card are reflected in our database thus even our customer support operators do not have any access to the credit card information.</p>
+          <h2 id="disclaimer">Disclaimer</h2>
+          <ol>
+            <li>Our company is not responsible for, and expressly disclaims all liability for any delay in delivery which does not exceed 10 days after the specified estimated delivery date. 10 (ten) days after the specified estimated delivery date, or the next business day, in case of a local holiday, is considered a deadline.</li>
+            <li>Our company is not responsible for failed delivery in case if Customer specified an insufficient address, wrong address or an address which does not lead to a successful delivery in any other way.
+              <br> Our company is not responsible for failed delivery in case if Customer failed to claim the package, refused it or prevented a successful delivery in any other way. All reships in such cases are made only via International Regular Mail.</li>
+            <li>Our company is not responsible for, and expressly disclaims all liability for a delivery of any generic product which does not meet Customer\'s expectations by criteria such as – color, shape and size of the pill, presence of any marking printed on, or branded upon pill, bearing a marketing name, or being made by a manufacturer different from the one Customer expected to get.
+              <br> For any generic product, all of the product information presented on the website, such as, but not limited to – thumbnails, product images, manufacturer names and marketing names, are there solely for information purposes.</li>
+  
+            <li>Our company is not responsible for, and expressly disclaims all liability for lack of efficiency of the received product in case the product was purchased for off-label use.</li>
+            <li>By placing an order with our company, you confirm that you have read, understood and agreed with this disclaimer. Any action taken to claim your payment back for any of the reasons listed above, will be considered a fraudulent action and may lead to legal action and ban from our system.</li>
+          </ol>
+              ',
+    ],
+];
 
 

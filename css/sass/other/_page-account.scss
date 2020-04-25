@@ -7,19 +7,73 @@
     @if $__viewport == xs{
 	
 		.page-account{
-			
+			table{
+				text-align: left;
+				th{
+					color: #7F8694;
+					font-size: 16px;
+					line-height: 1.5em;
+					font-weight: 400;
+				}
+
+				tfoot{
+					
+					th{
+						input[type="submit"]{
+							height: auto;
+						}
+					}
+				}
+
+				tr{
+					margin-bottom: 12px;
+				}
+			}
+
+			input[name="vcode"]{
+				width: 108px;
+			}
+		}
+
+		#vcode_img{
+			margin-left: 10px;
 		}
 
     }
 
     @if $__viewport == dev{
-	
+		
+		.page-account{
+			table,
+	        thead,
+	        tfoot,
+	        tbody,
+	        tr,
+	        th,
+	        td {
+	            display: block;
+	        }
+
+
+	        table{
+	        	display: flex;
+	        	flex-direction: column-reverse;
+	        }
+		}
 		
     }
 
     @if $__viewport == lg{
 		
+		.page-account{
+			table{
+				tbody{
+					td{
+						padding-bottom: 12px;
+					}
+				}
+			}
+		}
 		
-    	
     }
 }

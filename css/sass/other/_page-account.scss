@@ -39,6 +39,35 @@
 			margin-left: 10px;
 		}
 
+		.scrollable{
+			max-width: 100%;
+			overflow: auto;
+		}
+
+		.page-faq{
+			.simple{
+				&, td,th{
+					border: 1px solid _color(stroke);
+				}
+
+				td,th{
+					padding: 5px 10px;
+				}
+
+				thead{
+					th,
+					td{
+						color: _color(greyText);
+						background-color: #E7EEFF;
+					}
+
+					th{
+						
+					}
+				}
+			}
+		}
+
     }
 
     @if $__viewport == dev{

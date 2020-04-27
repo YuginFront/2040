@@ -1,0 +1,120 @@
+@mixin tbl-ship-method(){
+    @if $__use-css-comments{
+        /** tbl-ship-method #{$__viewport} */
+    }
+    .ship-method{
+        @if $__viewport == xs{
+            th {
+                color: #7F8694;
+                font-size: 20px;
+                line-height: 24px;
+                letter-spacing: -1px;
+                text-align: left;
+                padding-bottom: 8px;
+            }
+
+            tbody {
+                .btn,
+                .btn-inv {
+                    font-size: 16px;
+                    width: 100%;
+                }
+
+                button + button {
+                    margin-top: 12px;
+                }
+            }
+
+            tfoot {
+                .btn,
+                .btn-inv {
+                    font-size: 20px;
+                    width: 100%;
+                }
+
+                button + button {
+                    margin-top: 20px;
+                }
+
+                .ship-method__td-inner {
+                    padding-top: 24px;
+                }
+            }
+
+            &__td-inner {
+                tbody & {
+                    background-color: #F7F7F8;
+                    border-radius: 12px;
+                    padding: 16px 8px;
+                    text-align: center;
+                }
+            }
+        }
+        @if $__viewport == sm{
+            // width: 20px;
+        }
+        @if $__viewport == md{
+            th {
+                padding-left: 15px;
+            }
+
+            tbody {
+                .btn,
+                .btn-inv {
+                    width: auto;
+                }
+
+                button + button {
+                    margin-top: 0;
+                    margin-left: 30px;
+                }
+
+                .ship-method__td-inner {
+                    padding: 24px;
+                    text-align: left;
+                }
+            }
+
+            tfoot {
+                .btn,
+                .btn-inv {
+                    width: auto;
+                }
+
+                button + button {
+                    margin-top: 0;
+                    margin-right: 24px;
+                }
+
+                .ship-method__td-inner {
+                    display: flex;
+                    flex-direction: row-reverse;
+                }
+            }
+        }
+        @if $__viewport == lg{
+            padding-bottom: 56px;
+        }
+        @if $__viewport == xl{
+            // width: 50px;
+        }
+        @if $__viewport == dev{
+            // width: 60px;
+        }
+        @if $__viewport == mob{
+            // width: 70px;
+        }
+        @if $__viewport == xso{
+            // width: 80px;
+        }
+        @if $__viewport == smo{
+            // width: 90px;
+        }
+        @if $__viewport == mdo{
+            // width: 100px;
+        }
+        @if $__viewport == lgo{
+            // width: 110px;
+        }
+    }
+}

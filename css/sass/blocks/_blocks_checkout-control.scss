@@ -18,6 +18,11 @@
 
             .btn-inv {
                 padding: 7px 24px;
+                position: relative;
+                
+                &:before {
+                    position: absolute;
+                }
             }
         }
         @if $__viewport == sm{

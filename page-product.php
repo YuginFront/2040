@@ -148,7 +148,7 @@
         ],
         'data_checkout-control' => [
             [
-                'cls' => 'active',
+                'statusDosage' => 'active',
             ],
         ],
     ]);
@@ -209,7 +209,7 @@
 
 <div class="col-lg col-lg-6">
     <div class="product">
-        <? render('block_checkout-control') ?>
+        <? render('block_checkout-control', _var('data_checkout-control')) ?>
         <div class="product__header  product__header--dosage">
             <h2 class="product__title">Choose your dosage</h2>
             <p class="product__desc">When it comes to men’s health, a lot of issues need to be taken into account. <span class="product__fulldesc"> One of the most prominent one is erectile dysfunction/ impotence. This condition is described as the inability to have and sustain an erection from the point of arousal to the actual sexual activity.</span><a href="#" class="product__toggle-desc">read full</a></p>

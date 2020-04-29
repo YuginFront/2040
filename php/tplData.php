@@ -67,11 +67,6 @@ $_VARS['str_site-header'] = [
 
 $_VARS['blocks_switchers'] = [
 
-    // 'file'=>[
-    //     'name'=>'blocks_switchers',
-    //     'ext'=>$_ext,
-    //     'skip'=>0,
-    // ],
     [
         'data_form_sexy-select-language'=>[
             [
@@ -372,11 +367,6 @@ $_VARS['form_sexy-select'] = [
 
 $_VARS['form_select-option'] = [
 
-    // 'file'=>[
-    //     'name'=>'form_select-option',
-    //     'ext'=>$_ext,
-    //     'skip'=>0,
-    // ],
     [
         'value' =>' ',
         'selected' => ' ',
@@ -529,7 +519,7 @@ $_VARS['page-product'] = [
     [
         'layout_second'=>[
             [
-                'page-class'=>'layout_second',
+                'page-class'=>'l_sec page-product',
             ],
         ],
 
@@ -541,7 +531,7 @@ $_VARS['page-contact'] = [
     [
         'layout_second'=>[
             [
-                'page-class'=>'layout_second page-contact',
+                'page-class'=>'l_sec page-contact',
             ],
         ],
 
@@ -555,7 +545,7 @@ $_VARS['page-about'] = [
 
         'layout_second'=>[
             [
-                'page-class'=>'layout_second page-about',
+                'page-class'=>'l_sec page-about',
             ],
         ],
 
@@ -3355,3 +3345,250 @@ $_VARS['page-sitemap'] = [
               ',
     ],
 ];
+
+$_VARS['page-subscribe'] = [
+    'layout'=>['layout_second'],
+    [
+
+        'layout_second'=>[
+            [
+                'page-class'=>'layout_second page-subscribe',
+            ],
+        ],
+      'data_page-subscribe'=>'
+          <div class=error>invalid email</div>
+          <p>Subscribe to the latest weekly news about men\'s health medicine and the products we are selling. Keep informed about the best discounts and gifts of our store.</p>
+          <form method="post" action="/subscribe.php">
+            <table>
+              <tfoot><tr><th colspan="2"><input type="submit" value="Subscribe"/> <a href="javascript:reloadImageCode()">reload image</a></th></tr></tfoot>
+              <tbody>
+              <tr><th>Your Email<sup>*</sup></th><td><input name="email"/></td></tr>
+              <tr><th>Enter the code shown<sup>*</sup></th><td class="captcha"><input name="vcode" size="8"/> <img id="vcode_img" class="vcode" alt="verification code image" src="img/captcha.png"/></td></tr>
+              </tbody>
+            </table>
+          </form>
+          <p>Unsubscribe: please send an e-mail to unsubscribe@ed-customer.com with "unsubscribe".</p>
+      ',
+    ],
+];
+
+$_VARS['page-testimonials'] = [
+   'layout'=>['layout_second'],
+    [
+
+        'layout_second'=>[
+            [
+                'page-class'=>'layout_second page-testimonials',
+            ],
+        ],
+
+      'data_page-testimonials'=>
+            '<h1>Our Customer\'s Feedback</h1>
+
+            <div class="testimonials-spelling">
+            <div class="spelling"><div class="spelling"><h3>Original spelling retained</h3></div></div></div>
+            <div class="testimonial"><div class="test-header"><span class="s-img test-img"></span><span class="test-author"><span>James  </span></span>
+                        </div><div class="test-text">
+                          <div>
+            I wanted to let you know that my order arrived promptly, it was exactly what I
+            ordered and there was no funny business with my credit card. There are many bad
+            players in the generic drug business and I just wanted to let you know that I
+            appreciated being treated fairly and that I will definitely use you again. Thank you 
+
+            </div>                  <span></span>
+                        </div></div>
+                        <div class="testimonial"><div class="test-header"><span class="s-img test-img"></span><span class="test-author"><span>Jeremy  </span></span>
+                        </div><div class="test-text">
+                          <div>
+            Fantastic, I received the pills they are just as good as the real cialis. I
+            was a bit worried because your website is not on line any more and I did
+            read that someone said you where a scam. But I received my order so don\'t
+            know what they are talking about.
+            I would like to order more from you can you please send me your website so
+            I can place a new order . Thanks so much I am very happy with my order 
+
+            </div>                  <span></span>
+                        </div></div>
+                        <div class="testimonial"><div class="test-header"><span class="s-img test-img"></span><span class="test-author"><span>Hugh</span></span>
+                        </div><div class="test-text">
+                          <div>
+            Just to let you know that all three letters each containing 30 tablets each arrived safely.
+            Kind regards
+
+            </div>                  <span></span>
+                        </div></div>
+                        <div class="testimonial"><div class="test-header"><span class="s-img test-img"></span><span class="test-author"><span>Juno </span></span>
+                        </div><div class="test-text">
+                          <div>
+            Aloha Valery,
+            Thank you for such a timely response. I received my order today and wanted
+            to say that the service was wonderful! This is how repeat business is
+            created.
+
+            </div>                  <span></span>
+                        </div></div>
+                        <div class="testimonial"><div class="test-header"><span class="s-img test-img"></span><span class="test-author"><span>Randall  </span></span>
+                        </div><div class="test-text">
+                          <div>
+            OK...you guys are great! This was my second order and BAM! Perfect! Just
+            wanted to say thank you and you have a dedicated customer. Easy to order.
+            Return customer discount! What more could a guy want! Thank you Thanks
+            you......
+
+            </div>                  <span></span>
+                        </div></div>
+                        <div class="testimonial"><div class="test-header"><span class="s-img test-img"></span><span class="test-author"><span>Roger</span></span>
+                        </div><div class="test-text">
+                          <div>
+            THANK YOU THE ORDER ARRIVED. REG POST.....VERY PROFESSIONAL  VERY IMPRESSED!!! WILL TELL ALL MY MAN FRIENDS ABOUT YOUR SERVICE...THANKS AGAIN   I WILL BE BACK!! REGARDS
+
+            </div>                  <span></span>
+                        </div></div>
+                        <div class="testimonial"><div class="test-header"><span class="s-img test-img"></span><span class="test-author"><span>Valentino</span></span>
+                        </div><div class="test-text">
+                          <div>
+            I received my order.. I love you guys.. I will be placing another
+            order today for some other medicines.
+
+            This medication is so much better and more cost effecting than what
+            I can eat here in America..
+
+            so happy ..
+
+            you have customer for life!
+
+            </div>                  <span></span>
+                        </div></div>
+                        <div class="testimonial"><div class="test-header"><span class="s-img test-img"></span><span class="test-author"><span>Tim </span></span>
+                        </div><div class="test-text">
+                          <div>
+            I received my order today October 10. The slight delay was not a problem and
+            your excellent customer service attention made everything work out well, thank you,
+            Tim Gould
+
+            </div>                  <span></span>
+                        </div></div>
+                        <div class="testimonial"><div class="test-header"><span class="s-img test-img"></span><span class="test-author"><span>Marc  </span></span>
+                        </div><div class="test-text">
+                          <div>
+            Well as always my order did show up and I want to thank you and
+            your team for their service. I have ordered numerous times and will continue
+            to do so. Thanks again.
+
+            </div>                  <span></span>
+                        </div></div>
+                        <div class="testimonial"><div class="test-header"><span class="s-img test-img"></span><span class="test-author"><span>Anne</span></span>
+                        </div><div class="test-text">
+                          <div>
+            Dear Support Staff:
+
+            I received my order yesterday, January 9, 2012. Just want to thank you
+            for being so kind and professional.
+
+            Very truly yours,
+
+            Anne Hutchison
+
+            </div>                  <span></span>
+                        </div></div>
+                        <div class="testimonial"><div class="test-header"><span class="s-img test-img"></span><span class="test-author"><span>Moe</span></span>
+                        </div><div class="test-text">
+                          <div>
+            Dear customer support,
+            I\'m your returning customer.
+            I\'d also like to thank you for my previous order which has been shipped promptly.
+            Hope to do more business with you in the nearest future.
+            Thanks a lot!
+            Sincerely,
+            Moe Newaz
+
+            </div>                  <span></span>
+                        </div></div>
+                        <div class="testimonial"><div class="test-header"><span class="s-img test-img"></span><span class="test-author"><span>Irma</span></span>
+                        </div><div class="test-text">
+                          <div>
+            Hi, i recieved my package in Lithuania today. Thank you for your extreme good and fast service.
+            Best regards
+
+            </div>                  <span></span>
+                        </div></div>
+                        <div class="testimonial"><div class="test-header"><span class="s-img test-img"></span><span class="test-author"><span>Jörgen</span></span>
+                        </div><div class="test-text">
+                          <div>
+            I have recieved the order.With this delivery time I can continue to be a customer!!! Thanks!
+
+            </div>                  <span></span>
+                        </div></div>
+                         
+                      ',
+                      
+                     
+                        
+                                   
+    ],
+];
+
+$_VARS['page-coupon'] = [
+
+    'layout'=>['layout_second'],
+
+    [
+
+       'layout_second'=>[
+            [
+                'page-class'=>'layout_second page-coupon',
+            ],
+        ],
+
+      'data_page-coupon'=>'
+          <p>If you have a discount coupon code, please fill it in and click on the "submit" button to get your big discount!</p>
+          <form method="post" action="/coupon.php">
+            <table class="form">
+              <tbody>
+  
+              <tr><th><sup>*</sup>:</th><td><input name="coupon" /></td></tr>
+              <tr class="even vcode"><th>Enter the code shown<sup>*</sup>:</th><td><input name="vcode" size="8"/><img id="vcode_img" class="vcode" alt="verification code image" src="/imgs/rand.php"/>
+                  <a href="javascript:reloadImageCode()">reload image</a></td></tr>
+  
+              </tbody>
+              <tfoot><tr><th>&nbsp;</th><th><input type="submit" value="Login"/> </th></tr></tfoot>
+            </table>
+          </form>
+              ',
+    ],
+  ];
+
+$_VARS['page-bonuses'] = [
+
+    'layout'=>['layout_second'],
+
+    [
+
+       'layout_second'=>[
+            [
+                'page-class'=>'layout_second page-bonuses',
+            ],
+        ],
+
+      'data_page-bonuses'=>'
+          <p>We have a special discount program for our customers! Please check our bonus options:</p>
+  
+          <h2 id="free_pills">FREE pills!</h2>
+          <table class="free_pills">
+            <tr><th><img src="img/pills/4free.gif"></th><td>We add <b>4 gift Generic Viagra Soft pills</b> to every order for more than 20 pills of any Erectile Dysfunction drug.</td></tr>
+            <tr><th><img src="img/pills/10free.gif"></th><td>We add <b>10 gift Generic Viagra pills</b> to every order for more than 60 pills of any Erectile Dysfunction drug.</td></tr>
+            <tr><th><img src="img/pills/20free.gif"></th><td>We add <b>20 gift Generic Viagra pills</b> to every order for more than 100  pills of any Erectile Dysfunction drug.</td></tr>
+          </table>
+  
+          <h2 id="free_shipping">FREE shipping!</h2>
+          <p>We offer <b>free Standard Airmail Service</b> for all orders for more than 170 pills. We value our customers and this is the way we can express our gratitude.</p>
+  
+          <h2 id="returning_customer">Discounts!</h2>
+          <p>You are guaranteed to get a <b>5% discount</b> on your second order.</p>
+          <p>You are guaranteed to get a <b>7% discount</b> on your third and further orders.</p>
+          <p>Moreover, we offer various holiday and seasonal discounts. Check banners at the main page and get a discount!</p>
+              ',
+    ],
+];
+
+

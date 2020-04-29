@@ -5,6 +5,20 @@
     }
 
     @if $__viewport == xs{
+
+    	.breadcrumbs{
+    		letter-spacing: 0.1px;
+    		position: relative; 
+    		padding-left: 32px;
+    		font-size: 13px;
+    		line-height: 18px;
+    		margin-bottom: 11px;
+    		&:before{
+				position: absolute;
+				top: 0;
+				left: 4px;
+    		}
+    	}
 	
 		.product-desc{
 			
@@ -134,9 +148,43 @@
 		//     -webkit-box-orient: vertical;
 		// }
 
+    
+         .product__header {
+            margin-bottom: 16px;
+         }
+
+         .block-dosage__right-option{
+            margin-bottom: 0;
+         }
+
+         .block-dosage__left--without-val{
+            padding-top: 35px;
+            width: 29.5%;
+            padding-bottom: 7px;
+         }
+
+         .block-dosage__limit{
+            padding-bottom: 14px;
+
+            &--low{
+                margin-left: -2px;
+            }
+         }
+
     }
 
     @if $__viewport == lg{
+
+    	.breadcrumbs{
+    		margin-bottom: 12px;
+    		padding-left: 39px;
+    		
+    		&:before{
+    			// margin-right: 10px;
+    			top: 3px;
+    			left: 11px;
+    		}
+    	}
 
     	.product-desc{
     		margin-right: 9px;
@@ -160,10 +208,7 @@
 			width: 50%;
 			float: right;
 			padding-left: 12px;
-
-
 		}
-
 
 		.product-desc-img{
 			float: left;
@@ -174,10 +219,6 @@
 			width: 47.7%;
 			float: right;
 			padding-top: 7px;
-		}
-
-		.blister-img{
-			
 		}
 
 		.pill-img{
@@ -193,7 +234,12 @@
 			padding-right: 34px;
 			padding-bottom: 22px;
 			padding-left: 32px;
-			margin-bottom: 0;
+			
+			p{
+				display: inline-block;
+				vertical-align: middle;
+				margin-bottom: 0;
+			}
 		}
 
 		.read-full{

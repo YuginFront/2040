@@ -154,8 +154,10 @@
     ]);
 ?>
 
-<div class="col-lg col-lg-6">
-
+<div class="col-lg col-lg-6 col-left">
+    <div class="breadcrumbs icon icon-arr-back">
+        choose another product
+    </div>
     <article class="product-desc">
         <div class="desc-short">
             <header class="desc-header">
@@ -201,9 +203,16 @@
             </div>
 
         </div>
-        <p class="desc-full">
-            Generic Viagra — is the first and the most well-known remedy for male erection. Its active ingredient is called Sildenafil. It provides enhanced blood flow to the male genital area. The cavernous body is relaxed <span class="read-full">Read full description</span>
-        </p>
+        <div class="desc-full">
+            <p>
+                ызфт
+                Generic Viagra — is the first and the most well-known remedy for male erection. Its active ingredient is called Sildenafil. It provides enhanced blood flow to the male genital area. The cavernous body is relaxed
+            </p>
+            <span class="read-full">Read full description</span>
+            </div>
+            <div class="checkout-box">
+                <div class="btn checkout-fixed icon icon-cart-gray">Checkout <span class="item">2 items</span></div>
+            </div>
     </article>
 </div>
 

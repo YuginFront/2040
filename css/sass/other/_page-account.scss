@@ -5,8 +5,34 @@
     }
 
     @if $__viewport == xs{
+
+    	.page-account,
+		.page-subscribe,
+		.page-coupon{
+			table,
+	        thead,
+	        tfoot,
+	        tbody,
+	        tr,
+	        th,
+	        td {
+	            display: block;
+	        }
+
+		}
+
+		.page-account,
+		.page-subscribe{
+			
+	        table{
+	        	display: flex;
+	        	flex-direction: column-reverse;
+	        }
+		}
 	
-		.page-account{
+		.page-account,
+		.page-subscribe,
+		.page-coupon{
 			table{
 				text-align: left;
 				th{
@@ -32,6 +58,50 @@
 
 			input[name="vcode"]{
 				width: 108px;
+			}
+		}
+
+		.page-subscribe{
+			// table{
+			// 	tfoot{
+			// 		tr{
+
+			// 			th:first-child{
+			// 				display: flex;
+			// 				flex-direction: column-reverse;
+			// 				text-indent: 120px;
+			// 				a{
+			// 					margin-top: -18px;
+			// 					margin-bottom: 15px;
+			// 				}
+			// 			}
+			// 		}
+			// 	}
+			// }
+
+			// .error{
+			// 	color: _color(red);
+			// }
+		}
+
+		.page-testimonials{
+			
+			.spelling{
+				h3{
+					margin-bottom: 1.5em;
+				}
+			}
+
+			.testimonial{
+				border-top: 1px solid _color(stroke);
+				padding: 15px;
+				&:hover{
+					 background-color: #E7EEFF;
+				}
+			}
+
+			.test-author{
+				color: _color(brandColor);
 			}
 		}
 
@@ -78,33 +148,75 @@
 			}
 		}
 
+		.page-subscribe{
+
+			tfoot{
+				tr{
+
+					th:first-child{
+						display: flex;
+						flex-direction: column-reverse;
+						text-indent: 120px;
+						a{
+							margin-top: -18px;
+							margin-bottom: 15px;
+						}
+					}
+				}
+			}
+
+			.error{
+				color: _color(red);
+			}
+		}
+
     }
 
     @if $__viewport == dev{
 		
-		.page-account{
-			table,
-	        thead,
-	        tfoot,
-	        tbody,
-	        tr,
-	        th,
-	        td {
-	            display: block;
-	        }
+		// .page-account,
+		// .page-subscribe{
+		// 	table,
+	 //        thead,
+	 //        tfoot,
+	 //        tbody,
+	 //        tr,
+	 //        th,
+	 //        td {
+	 //            display: block;
+	 //        }
 
 
-	        table{
-	        	display: flex;
-	        	flex-direction: column-reverse;
-	        }
-		}
+	 //        table{
+	 //        	display: flex;
+	 //        	flex-direction: column-reverse;
+	 //        }
+		// }
+
+		// .page-subscribe{
+
+		// 	tfoot{
+		// 		tr{
+
+		// 			th:first-child{
+		// 				display: flex;
+		// 				flex-direction: column-reverse;
+		// 				text-indent: 120px;
+		// 				a{
+		// 					margin-top: -18px;
+		// 					margin-bottom: 15px;
+		// 				}
+		// 			}
+		// 		}
+		// 	}
+		// }
 		
     }
 
     @if $__viewport == lg{
 		
-		.page-account{
+		.page-account,
+		.page-subscribe{
 			table{
 				tbody{
 					td{

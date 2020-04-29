@@ -206,8 +206,37 @@ ProductBlock.prototype.navCheckout = function(e) {
     }
 }
 
+// function scrollTo(element,to,duration) {
+
+//     var start = element.scrollTop,
+//         change = to - start,
+//         currentTime = 0,
+//         increment = 20;
+        
+//     var animateScroll = function(){      
+//         currentTime += increment;
+//         element.scrollTop = element.scrollTop - currentTime;
+        
+//         if(currentTime < duration && element.scrollTop !== 0) {
+//             setTimeout(animateScroll, increment);
+//         }
+//     }; 
+//     animateScroll();
+// }
+
+function scrollPageTo(el){
+     $('html, body').animate({scrollTop: $(el).offset().top - $('.site-header').height()}, 1000);
+}
+
+var resizeTimer, productTitle = document.querySelector('.product__title');
+
 
 window.addEventListener('DOMContentLoaded',function(){
+
+
+    if (productTitle && (G_device.width < 1025)){
+         scrollPageTo(productTitle);
+    }
 
     /**
      * classSwitchers
@@ -257,7 +286,6 @@ window.addEventListener('DOMContentLoaded',function(){
 
 });
 
-
 window.addEventListener('resize',function(ev){
     let t = G_device.type;
     setViewport();
@@ -265,6 +293,16 @@ window.addEventListener('resize',function(ev){
     if(G_device.type !== t){
         dbx('',true);
     }
+
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function() {
+
+        if (productTitle && (G_device.width < 1025)){
+             scrollPageTo(productTitle);
+        }
+                
+      }, 250);
+
 });
 
 document.addEventListener('click',function(ev){

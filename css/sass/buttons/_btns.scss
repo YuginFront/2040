@@ -50,7 +50,9 @@ $e_btns: (
         .btn,
         .btn-tbl,
         .btn-checkout,
-        .page-account tfoot th input[type="submit"]{
+        .page-subscribe tfoot th input[type="submit"],
+        .page-account tfoot th input[type="submit"],
+        .page-coupon tfoot th input[type="submit"]{
             @extend %btn;
             @extend %btn-acc;
         }
@@ -148,7 +150,44 @@ $e_btns: (
         .btn-checkout{
             border: 1px solid _color(stroke);
         }
+
+        .checkout-box{
+            position: fixed;
+            bottom: 0;
+            right: 17px;
+            z-index: 990;
+            padding-top: 4px;
+            padding-right: 7px;
+            padding-bottom: 4px;
+            padding-left: 8px;
+            background: #F9F9F9;
+            box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 12px 12px 0 0;
+            .checkout-fixed{
+                min-width: 200px;
+                font-size: 16px;
+                padding-top: 6px;
+                padding-bottom: 6px;
+                padding-left: 46px;
+                padding-right: 15px;
+                letter-spacing: -0.9px;
+                &.icon{
+                    &:before{
+                        position: absolute;
+                        top: 6px;
+                        left: 26px;
+                    }
+                }
+
+                .item{
+                    font-family: _font(ff, base);
+                    margin-left: 2px;
+                }
+            }
+        }
     }
+
+
 
     @if $__viewport == lg{
         .btn-menu{
@@ -172,7 +211,5 @@ $e_btns: (
         }
     }
 }
-
-
-        
+   
     

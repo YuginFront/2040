@@ -16,6 +16,13 @@
 
 		.main, main{
 			padding-top: 31px;
+			padding-bottom: 40px;
+		}
+
+		.page-product{
+			.main{
+				padding-top: 11px;
+			}
 		}
 	}
 
@@ -23,7 +30,18 @@
 
 		.main{
 			padding-top: 48px;
+
+			.l_sec & {
+				padding-top: 24px;
+			}
 		}
+		
+		.page-product{
+			.col-left{
+				padding-top: 54px;
+			}
+		}
+
 		
 	}
 

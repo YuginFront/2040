@@ -1,0 +1,379 @@
+@mixin tbl-ship-cart(){
+    @if $__use-css-comments{
+        /** tbl-ship-cart #{$__viewport} */
+    }
+    .ship-cart{
+        @if $__viewport == xs{
+            table,
+            thead,
+            tfoot,
+            tbody,
+            tr,
+            th,
+            td {
+                display: block;
+            }
+
+            thead {
+                margin-bottom: 7px;
+            }
+
+            tbody {
+                border: 1px solid #DCDEE2;
+                border-radius: 12px;
+                overflow: hidden;
+                padding: 12px 0 8px 0;
+                margin-bottom: 7px;
+
+                tr {
+                    display: flex;
+                    flex-wrap: wrap;
+                    padding: 8px 15px;
+                    border-top: 1px solid #DCDEE2;
+
+                    &:first-child {
+                        border-top: none;
+                    }
+                }
+            }
+
+            th {
+                color: #7F8694;
+                font-size: 20px;
+                line-height: 24px;
+                letter-spacing: -1px;
+                text-align: left;
+            }
+
+            &__td-prod {
+                position: relative;
+                font-size: 20px;
+                font-family: _font('ff', 'second');
+                font-weight: bold;
+                width: 100%;
+                margin-bottom: 15px;
+
+                img {
+                    width: 41px;
+                    height: auto;
+                    position: absolute;
+                    top: -2px;
+                    right: 0;
+                }
+            }
+
+            &__upgrade {
+                display: none;
+                font-size: 12px;
+                line-height: 14px;
+                padding-left: 15px;
+                position: relative;
+
+                &:before {
+                    position: absolute;
+                    top: 7px;
+                    left: 0;
+                }
+
+                &--mob {
+                    display: block;
+                    width: 100%;
+                    padding-top: 4px;
+                }
+
+                a {
+                    font-size: 12px;
+                }
+
+                span {
+                    color: #FF003D;
+                }
+            }
+
+            &__td-dosage,
+            &__td-price {
+                font-size: 22px;
+                line-height: 24px;
+                letter-spacing: -1px;
+                font-weight: bold;
+                font-family: _font('ff', 'second');
+
+                span {
+                    display: block;
+                    font-size: 16px;
+                    line-height: 24px;
+                    font-family: _font('ff', 'first');
+                    font-weight: normal;
+                }
+            }
+
+            &__td-dosage {
+                margin-right: 28px;
+            }
+
+            &__separate {
+                display: none !important;
+                padding: 0 !important;
+            }
+
+            .block-profits {
+                padding-top: 4px;
+            }
+
+            tfoot {
+                background-color: #E2FFD8;
+                border-radius: 12px;
+                padding: 7px 0;
+
+                tr {
+                    border-top: 2px solid #fff;
+                    padding: 8px 15px;
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    &:first-child,
+                    &:nth-child(2) {
+                        border-top: none;
+                    }
+                }
+
+                .ship-cart__td-dosage {
+                    span {
+                        display: none;
+                    }
+                }
+
+                .ship-cart__td-price {
+                    color: #28C75D;
+                }
+            }
+        }
+        @if $__viewport == sm{
+            // width: 20px;
+        }
+        @if $__viewport == md{
+            table {
+                display: table;
+                width: 100%;
+                border-collapse: separate;
+            }
+            thead {
+                display: table-header-group;
+                margin-bottom: 0;
+            }
+            tfoot {
+                display: table-footer-group;
+                background-color: transparent;
+
+                tr {
+                    display: table-row;
+                    border-top: none;
+
+                    &:nth-child(2) {
+
+                        td {
+                            border-top: none;
+                        }
+
+                        .ship-cart__td-prod {
+                            border-radius: 12px 0 0 0;
+                        }
+
+                        .ship-cart__td-price {
+                            border-radius: 0 12px 0 0;
+                        }
+                    }
+
+                    &:last-child {
+                        .ship-cart__td-prod {
+                            border-radius: 0 0 0 12px;
+                        }
+
+                        .ship-cart__td-price {
+                            border-radius: 0 0 12px 0;
+                        }
+                    }
+                }
+
+                td {
+                    background-color: #E2FFD8;
+                    border-top: 2px solid #fff;
+                }
+
+                .ship-cart__td-dosage {
+                    span {
+                        display: inline-block;
+                    }
+                }
+
+                .ship-cart__td-prod {
+                    img {
+                        width: 57px;
+                        top: -4px;
+                    }
+                }
+            }
+            tbody {
+                display: table-row-group;
+                padding: 0;
+                border: none;
+                border-radius: 0;
+                
+                tr {
+                    padding: 0;
+                    border-top: none;
+                    display: table-row;
+
+                    &:first-child {
+                        td {
+                            border-top: 1px solid #DCDEE2;
+                        }
+                        
+                        .ship-cart__td-prod {
+                            border-radius: 12px 0 0 0;
+                        }
+                        
+                        .ship-cart__td-price {
+                            border-radius: 0 12px 0 0;
+                        }
+                    }
+
+                    &:last-child {
+                        .ship-cart__td-prod {
+                            border-radius: 0 0 0 12px;
+                        }
+                        
+                        .ship-cart__td-price {
+                            border-radius: 0 0 12px 0;
+                        }
+                    }
+                }
+
+                td {
+                    border-bottom: 1px solid #DCDEE2;
+
+                }
+                .ship-cart__td-prod {
+                    border-left: 1px solid #DCDEE2;
+                }
+                .ship-cart__td-price {
+                    border-right: 1px solid #DCDEE2;
+                }
+            }
+            tr {
+                display: table-row;
+            }
+            th,
+            td {
+                display: table-cell;
+                // height: 100px;
+            }
+
+            th {
+                padding-bottom: 8px;
+                padding-left: 15px;
+            }
+
+            td {
+                vertical-align: top;
+                padding: 20px 10px 14px 10px;
+            }
+            
+            &__td-prod {
+                margin-bottom: 0;
+                width: auto;
+                position: static;
+                padding-left: 15px;
+                font-size: 32px;
+                line-height: 36px;
+
+                img {
+                    // position: static;
+                    width: 91px;
+                    top: 0;
+                    left: 0;
+                }
+
+                .ship-cart__body-inner,
+                .ship-cart__foot-inner {
+                    position: relative;
+                    padding-left: 110px;
+                    margin-top: -7px;
+                }
+
+                .block-profits {
+                    line-height: 18px;
+                }
+            }
+
+            .ship-cart__td-dosage,
+            .ship-cart__td-price {
+                font-size: 32px;
+                font-size: 36px;
+
+                span {
+                    padding-top: 4px;
+                }
+            }
+
+            &__td-dosage {
+                margin-right: 0;
+            }
+
+            &__upgrade {
+                display: block;
+                font-weight: normal;
+                padding-top: 6px;
+
+                &--mob {
+                    display: none !important;
+                }
+
+                &:before {
+                    top: 9px;
+                }
+
+                span {
+                    display: inline-block;
+                    font-size: 12px;
+                    padding-left: 2px;
+                    line-height: 14px;
+                }
+            }
+
+            &__separate {
+                display: table-row !important;
+
+                td {
+                    background-color: #fff !important;
+                    padding: 8px 0 0 0;
+                    height: 0;
+                }
+            }
+        }
+        @if $__viewport == lg{
+            // width: 40px;
+        }
+        @if $__viewport == xl{
+            // width: 50px;
+        }
+        @if $__viewport == dev{
+            // width: 60px;
+        }
+        @if $__viewport == mob{
+            // width: 70px;
+        }
+        @if $__viewport == xso{
+            // width: 80px;
+        }
+        @if $__viewport == smo{
+            // width: 90px;
+        }
+        @if $__viewport == mdo{
+            // width: 100px;
+        }
+        @if $__viewport == lgo{
+            // width: 110px;
+        }
+    }
+}

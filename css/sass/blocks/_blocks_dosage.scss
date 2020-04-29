@@ -168,29 +168,6 @@
             &__footer {
                 padding-top: 20px;
                 text-align: center;
-
-                // a {
-                //     font-size: 13px;
-                //     line-height: 18px;
-                //     margin-right: 10px;
-                //     font-weight: bold;
-
-                //     &:before {
-                //         margin-right: 4px;
-                //     }
-
-                //     &:nth-child(1) {
-                //         color: #FDAC10;
-                //     }
-
-                //     &:nth-child(2) {
-                //         color: #28C75D;
-                //     }
-
-                //     &:nth-child(3) {
-                //         color: #FF003D;
-                //     }
-                // }
             }
         }
         @if $__viewport == sm{

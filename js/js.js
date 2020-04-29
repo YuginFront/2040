@@ -124,7 +124,6 @@ deviceType();
 
 function ProductBlock(el, ctrlBlock) {
     this.el = el;
-    this.ctrlBlock = ctrlBlock;
     this.blockPack = el.querySelectorAll('.block-dosage--package');
     if (this.blockPack.length === 0) return;
     
@@ -132,12 +131,6 @@ function ProductBlock(el, ctrlBlock) {
     this.clss = ['product'];
 
     this.linksFullDesc = [].slice.apply(el.querySelectorAll('.product__toggle-desc'));
-
-    this.getPackage = this.getPackage.bind(this);
-    this.navCheckout = this.navCheckout.bind(this);
-
-    this.selectDos.addEventListener('click', this.getPackage);
-    this.ctrlBlock.addEventListener('click', this.navCheckout);
 
     this.linksFullDesc.forEach(function(item) {
         item.addEventListener('click', function(e) {
@@ -147,63 +140,24 @@ function ProductBlock(el, ctrlBlock) {
         });
     });
 }
-ProductBlock.prototype.getPackage = function(e) {
-    e.preventDefault();
-    []
-        .slice
-        .apply(this.el.querySelectorAll('.block-dosage__right-option--active'))
-        .forEach(function(item) {
-            item.classList.remove('block-dosage__right-option--active');
-        });
 
-    e.target.closest('.block-dosage__right-option').classList.add('block-dosage__right-option--active');
-    (this.clss.indexOf('product--stage-package') === -1) && this.clss.push('product--stage-package');    
-    this.el.setAttribute('class', this.clss.join("  "));
+function Observable() {
+    this.observers = [];
+}
+Observable.prototype.sendMessage = function(msg) {
+    this.observers.forEach(function(item) {
+        item.notify(msg);
+    });
+}
+Observable.prototype.addObserver = function(observer) {
+    this.observers.push(observer);
+}
 
-    this.blockPack[0].classList.contains('block-dosage--active') || this.blockPack[0].classList.add('block-dosage--active');
-    
-    const btn1 = this.ctrlBlock.querySelector('.btn-inv[data-level="1"]');
-    const btn2 = this.ctrlBlock.querySelector('.btn-inv[data-level="2"]');
-
-    btn1.classList.contains('active') && btn1.classList.remove('active')
-    btn1.classList.add('passed');
-    btn2.classList.add('active');
-};
-ProductBlock.prototype.navCheckout = function(e) {
-    const curBtn = e.target.closest('.btn-inv.passed');
-
-    if (!curBtn) return;
-    switch(curBtn.getAttribute('data-level')) {
-        case "1":
-            if (this.el.classList.contains('product--stage-package')) {
-                this.clss = this.clss.filter(function(item) {
-                    return item !== 'product--stage-package';
-                });
-                this.el.setAttribute('class', this.clss.join("  "));
-                []
-                    .slice
-                    .apply(this.el.querySelectorAll('.block-dosage--package'))
-                    .forEach(function(item) {
-                        item.classList.remove('block-dosage--active');
-                    });
-
-                let flagLevel = 0;
-                []
-                    .slice
-                    .apply(this.ctrlBlock.querySelectorAll('.btn-inv'))
-                    .forEach(function(item, idx) {
-                        (curBtn == item || flagLevel > 0) && ++flagLevel;
-                        if (flagLevel == 1) {
-                            item.classList.remove('passed');
-                            item.classList.add('active');
-                        }
-                        if (flagLevel > 1) {
-                            item.classList.remove('passed');
-                            item.classList.remove('active');
-                        }
-                    });
-            }
-    }
+function Observer(behavior) {
+    this.behavior = behavior;
+}
+Observer.prototype.notify = function(msg) {
+    this.behavior(msg);
 }
 
 // function scrollTo(element,to,duration) {
@@ -270,6 +224,12 @@ window.addEventListener('DOMContentLoaded',function(){
     })();
 
 
+    function setSexyValue(select) {
+         const text = select.options[select.selectedIndex].innerHTML;
+         select.previousElementSibling.innerHTML = text;
+    }
+
+
     (function() {
         const listProductBlocks = document.querySelectorAll('.product');
         const ctrlBlock = document.querySelector('.control-order');
@@ -277,13 +237,64 @@ window.addEventListener('DOMContentLoaded',function(){
         new ProductBlock(listProductBlocks[0], ctrlBlock);
     })();
 
+    const dosageObs = new Observer(function(state) {
+        const controlDosage = document.querySelectorAll('.product');
+        switch (parseInt(state)) {
+            case 0:
+                controlDosage[0].classList.remove('product--stage-package');
+                controlDosage[0].querySelector('.block-dosage--package')
+                    .classList
+                    .remove('block-dosage--active');
+                break;
+            case 1:
+                controlDosage[0].classList.add('product--stage-package');
+                controlDosage[0].querySelector('.block-dosage--package')
+                    .classList
+                    .add('block-dosage--active');
+                break;
+        }
+    });
 
-    function setSexyValue(select) {
-         const text = select.options[select.selectedIndex].innerHTML;
-         select.previousElementSibling.innerHTML = text;
-    }
+    const controlOrderObs = new Observer(function(state) {
+        const controlOrder = [].slice.apply(document.querySelectorAll('.control-order button'));
+        state = parseInt(state);
+        if (controlOrder.length > 0) {
+            controlOrder.forEach(function(item, idx) {
+                if (idx < state) {
+                    item.classList.remove('active');
+                    item.classList.add('passed');
+                } else if (idx === state) {
+                    item.classList.remove('passed');
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                    item.classList.remove('passed');
+                }
+            });
+        }
+    });
 
+    const observable = new Observable();
+    observable.addObserver(dosageObs);
+    observable.addObserver(controlOrderObs);
 
+    (function() {
+        const selectDos = document.querySelectorAll('.block-dosage--dosage .block-dosage__right-body');
+        const elControlOrder = document.querySelectorAll('.control-order');
+
+        if (selectDos.length > 0) {
+            selectDos[0].addEventListener('click', function(e) {
+                e.preventDefault();
+                observable.sendMessage(1);
+            });
+        }
+
+        if (elControlOrder.length > 0) {
+            elControlOrder[0].addEventListener('click', function(e) {
+                observable.sendMessage(e.target.closest('.btn-inv').getAttribute('data-level'));
+            });
+        }
+    })();
 });
 
 window.addEventListener('resize',function(ev){

@@ -20,6 +20,8 @@
 "other/index",
 "structure/index",
 "tables/index",
+"tables/tbl-ship-cart",
+"tables/tbl-ship-method",
 "typography/index"
 ;
 
@@ -75,6 +77,8 @@
     @include _category(tables) {
         @include pl-tables;
         @include tables;
+        @include tbl-ship-cart;
+        @include tbl-ship-method;
     }
 
     @include _category(other) {
